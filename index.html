@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍽️ Essensplan · Familie Heineccius</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; color: #333; }
+  .container { max-width: 900px; margin: 0 auto; }
+  header { text-align: center; padding: 30px 20px 10px; color: white; }
+  header h1 { font-size: 2.2em; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+  header p { font-size: 1.1em; opacity: 0.9; }
+  .legend { display: flex; justify-content: center; gap: 20px; margin: 15px 0; flex-wrap: wrap; }
+  .legend span { background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.85em; color: white; }
+  .tab-nav { display: flex; justify-content: center; gap: 10px; margin: 20px 0 25px; flex-wrap: wrap; }
+  .tab-btn { padding: 12px 28px; border: 2px solid rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); color: white; border-radius: 30px; font-size: 1em; font-weight: 600; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px); }
+  .tab-btn:hover { background: rgba(255,255,255,0.3); }
+  .tab-btn.active { background: white; color: #667eea; border-color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .day-card { background: white; border-radius: 20px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15); transition: transform 0.2s; border: 3px solid transparent; }
+  .day-card:hover { transform: translateY(-2px); }
+  .day-card.today { border: 3px solid #ffd700; box-shadow: 0 10px 40px rgba(255,215,0,0.35); }
+  .day-header { padding: 18px 24px; color: white; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .day-header.guests { background: linear-gradient(135deg, #f093fb, #f5576c); }
+  .day-header.weekend { background: linear-gradient(135deg, #f6d365, #fda085); }
+  .day-header.weekday { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+  .day-header.solo { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+  .day-header h2 { font-size: 1.3em; }
+  .day-header .badge { background: rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 12px; font-size: 0.8em; }
+  .meals { padding: 20px 24px; }
+  .meal { margin-bottom: 16px; border-radius: 14px; overflow: hidden; border: 1px solid #eee; }
+  .meal:last-child { margin-bottom: 0; }
+  .meal-summary { display: flex; align-items: center; gap: 16px; padding: 12px 16px; cursor: pointer; user-select: none; transition: background 0.2s; }
+  .meal-summary:hover { background: #f8f9fa; }
+  .meal-img { width: 70px; height: 70px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+  .meal-info { flex: 1; }
+  .meal-info .meal-type { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 2px; }
+  .meal-info .meal-name { font-size: 1.05em; font-weight: 600; color: #333; }
+  .meal-info .meal-note { font-size: 0.82em; color: #999; margin-top: 2px; }
+  .meal-toggle { font-size: 1.4em; color: #ccc; transition: transform 0.3s; flex-shrink: 0; }
+  .meal.open .meal-toggle { transform: rotate(180deg); }
+  .meal-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #f8f9fa; }
+  .meal.open .meal-details { max-height: 1000px; }
+  .meal-details-inner { padding: 16px 20px; font-size: 0.9em; line-height: 1.6; }
+  .meal-details-inner h4 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #667eea; margin-bottom: 8px; }
+  .meal-details-inner ul { list-style: none; margin-bottom: 14px; }
+  .meal-details-inner ul li::before { content: "•"; color: #667eea; margin-right: 8px; }
+  .meal-details-inner ol { margin-bottom: 14px; padding-left: 20px; }
+  .meal-details-inner .tip { background: #fff3cd; padding: 10px 14px; border-radius: 10px; font-size: 0.88em; margin-top: 8px; }
+  .meal-details-inner .tip::before { content: "💡 "; }
+  .shopping-section { background: white; border-radius: 20px; padding: 30px; margin-top: 10px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
+  .shopping-section h2 { font-size: 1.5em; margin-bottom: 20px; text-align: center; }
+  .shop-category { margin-bottom: 18px; }
+  .shop-category h3 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #667eea; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #eee; }
+  .shop-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+  .shop-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 0.9em; }
+  .shop-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: #667eea; }
+  .footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.6); font-size: 0.85em; }
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    header h1 { font-size: 1.6em; }
+    .meals { padding: 14px 16px; }
+    .meal-img { width: 56px; height: 56px; }
+    .day-header { padding: 14px 18px; }
+    .day-header h2 { font-size: 1.1em; }
+    .shopping-section { padding: 20px 16px; }
+    .tab-btn { padding: 10px 18px; font-size: 0.9em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>🍽️ Familien-Essensplan</h1>
+    <p>Familie Heineccius · Juni 2026</p>
+    <div class="legend">
+      <span>🟣 Besuch (8 Pers.)</span>
+      <span>🟢 Familie (6 Pers.)</span>
+      <span>🟡 Wochenende</span>
+      <span>🔵 Solo-Tag</span>
+    </div>
+  </header>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" id="btn-current" onclick="switchTab('current')">📅 Essensplan</button>
+    <button class="tab-btn" id="btn-shopping" onclick="switchTab('shopping')">🛒 Einkaufsliste</button>
+  </div>
+
+  <!-- ESENSPLAN TAB -->
+  <div class="tab-content active" id="tab-current">
+
+    <!-- SA 7.6. — Wochenende, 8 Pers. -->
+    <div class="day-card" id="2026-06-07">
+      <div class="day-header guests">
+        <h2>🟣 Sa 7.6. · Wochenende</h2>
+        <span class="badge">🏇 Reiten · 8 Pers. mit Schwiegereltern</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥐 Großes Brötchen-Frühstück</div>
+              <div class="meal-note">Brötchen vom Bäcker, Aufschnitt, Käse, Marmelade, Rührei</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (8 Pers.)</h4>
+              <ul>
+                <li>16–20 Brötchen (verschiedene: normal, Vollkorn, Sesam)</li>
+                <li>Aufschnitt: Salami, Schinken, Käse (Gouda, Emmentaler)</li>
+                <li>Marmelade (verschiedene Sorten), Honig, Butter</li>
+                <li>8–10 Eier für Rührei</li>
+                <li>Milch, Kaffee, Orangensaft, Tee</li>
+                <li>Tomaten, Gurke als Beilage</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🍝 Vegetarische Lasagne</div>
+              <div class="meal-note">Klassiker für viele Leute — zwei Formen, dazu Salat</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (8 Pers.)</h4>
+              <ul>
+                <li>2 Pck. Lasagneplatten (je 500g)</li>
+                <li>800g Spinat (tief, aufgetaut)</li>
+                <li>600g Ricotta</li>
+                <li>800ml Bechamelsauce (Butter, Mehl, Milch)</li>
+                <li>2 Dosen passierte Tomaten (á 400g)</li>
+                <li>2 Zwiebeln, 4 Knoblauchzehen</li>
+                <li>300g geriebener Käse (Mozzarella + Parmesan)</li>
+                <li>Muskatnuss, Salz, Pfeffer, Oregano</li>
+                <li>1 großes Baguette oder Ciabatta</li>
+                <li>Salat: gemischter Salat, Tomaten, Gurke, Essig/Öl</li>
+              </ul>
+              <h4>Zubereitung</h4>
+              <ol>
+                <li>Zwiebeln und Knoblauch hacken, in Olivenöl andünsten. Passata zugeben, 15 Min köcheln. Mit Oregano, Salz, Pfeffer abschmecken.</li>
+                <li>Spinat ausdrücken, mit Ricotta, Muskatnuss, Salz mischen.</li>
+                <li>Bechamel: Butter schmelzen, Mehl einrühren, Milch langsam zugeben, aufkochen bis cremig.</li>
+                <li>Zwei Auflaufformen: Boden Tomatensauce → Lasagneplatten → Spinat-Ricotta → Bechamel → Käse. Wiederholen, oben mit Käse abschließen.</li>
+                <li>40 Min bei 200°C backen, 10 Min ruhen lassen.</li>
+              </ol>
+              <div class="tip">Lasagne schmeckt am nächsten Tag noch besser! Reste für Sonntag Mittagessen aufheben.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SO 8.6. — Wochenende, 8 Pers. -->
+    <div class="day-card" id="2026-06-08">
+      <div class="day-header guests">
+        <h2>🟣 So 8.6. · Wochenende</h2>
+        <span class="badge">🎪 Museumsmeilenfest · 🏛️ abends JHV Taubenschlag · 8 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥞 Pancakes mit Ahornsirup & frischem Obst</div>
+              <div class="meal-note">Sonntagsklassiker für 8 Personen</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (8 Pers.)</h4>
+              <ul>
+                <li>500g Mehl (Type 405)</li>
+                <li>5 Eier</li>
+                <li>600ml Milch</li>
+                <li>2 Päckchen Backpulver</li>
+                <li>1 Prise Salz, 3 EL Zucker</li>
+                <li>Butter zum Ausbacken</li>
+                <li>Ahornsirup, 400g frische/TK-Beeren</li>
+                <li>Bananen, Apfelmus als Alternativen</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Mittagessen</div>
+              <div class="meal-name">♻️ Lasagne-Reste vom Vortag</div>
+              <div class="meal-note">Aufgewärmt schmeckt sie noch besser!</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Dazu</h4>
+              <ul>
+                <li>Frischer grüner Salat</li>
+                <li>Baguette</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🍗 Ofen-Pollo mit Paprika-Zucchini-Gemüse & Ciabatta</div>
+              <div class="meal-note">Einfach, macht sich von selbst im Ofen. Lachs-Variante für Julia.</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (8 Pers.)</h4>
+              <ul>
+                <li>8 Hähnchenschenkel oder Hähnchenbrust (ca. 1,5 kg)</li>
+                <li>3 Paprika (rot, gelb, grün)</li>
+                <li>2 Zucchini</li>
+                <li>2 Zwiebeln, 4 Knoblauchzehen</li>
+                <li>Olivenöl, Paprikapulver, Thymian, Rosmarin</li>
+                <li>2 Ciabatta</li>
+                <li>Für Julia: 2 Lachsfilets (á 150g)</li>
+                <li>Salat als Beilage</li>
+              </ul>
+              <h4>Zubereitung</h4>
+              <ol>
+                <li>Ofen auf 200°C vorheizen. Hähnchen mit Olivenöl, Paprikapulver, Salz, Thymian einreiben.</li>
+                <li>Gemüse in große Stücke schneiden, um das Hähnchen herum verteilen. Knoblauchzehen ganz dazwischen.</li>
+                <li>45–50 Min im Ofen, bis Hähnchen knusprig und Gemüse weich.</li>
+                <li>Lachs in den letzten 15 Min dazu (oder separat bei 180°C, 12–15 Min).</li>
+                <li>Mit Ciabatta servieren.</li>
+              </ol>
+              <div class="tip">Das Hähnchen macht sich komplett selbst — Perfekt, wenn Tim abends zur JHV muss!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MO 9.6. — Besuch, 8 Pers. -->
+    <div class="day-card" id="2026-06-09">
+      <div class="day-header guests">
+        <h2>🟣 Mo 9.6. · Letzter Tag Schwiegereltern</h2>
+        <span class="badge">🏊 Nora Schwimmen · 8 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥣 Müsli-Joghurt-Buffet</div>
+              <div class="meal-note">Haferflocken, Joghurt, frisches Obst, Nüsse — jeder bedient sich selbst</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (8 Pers.)</h4>
+              <ul>
+                <li>1 kg Naturjoghurt (3,5%)</li>
+                <li>500g Haferflocken (zart + kernig)</li>
+                <li>1 Beutel Müsli-Mischung</li>
+                <li>2 Bananen, 2 Äpfel, 400g Beeren</li>
+                <li>Nüsse (Walnüsse, Mandeln)</li>
+                <li>Honig, Ahornsirup</li>
+                <li>Milch, Kaffee, Tee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🍛 Kichererbsen-Curry mit Reis</div>
+              <div class="meal-note">Vegetarian comfort food, skaliert gut auf 8 Personen</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (8 Pers.)</h4>
+              <ul>
+                <li>3 Dosen Kichererbsen (á 400g, abgetropft)</li>
+                <li>2 Dosen Kokosmilch (á 400ml)</li>
+                <li>3–4 TL Currypaste (gelb oder mild rot)</li>
+                <li>500g Reis (Basmati)</li>
+                <li>2 Zwiebeln, 4 Knoblauchzehen, 1 Stück Ingwer</li>
+                <li>1 große Zucchini, 1 Paprika</li>
+                <li>200g Babyspinat</li>
+                <li>2 EL Olivenöl</li>
+                <li>Kreuzkümmel, Kurkuma, Salz, Pfeffer</li>
+                <li>Naan-Brot oder Fladenbrot dazu</li>
+              </ul>
+              <h4>Zubereitung</h4>
+              <ol>
+                <li>Reis nach Packungsanweisung kochen.</li>
+                <li>Zwiebeln, Knoblauch, Ingwer fein hacken. Öl erhitzen, Zwiebel glasig dünsten.</li>
+                <li>Currypaste, Kreuzkümmel, Kurkuma zugeben, 1 Min mitrösten.</li>
+                <li>Zucchini und Paprika in Würfel schneiden, 3 Min mitbraten.</li>
+                <li>Kichererbsen und Kokosmilch angießen. 20 Min bei mittlerer Hitze köcheln.</li>
+                <li>Babyspinat unterheben, 2 Min zusammenfallen lassen.</li>
+                <li>Mit Reis und Naan-Brot servieren.</li>
+              </ol>
+              <div class="tip">Curry lässt sich super vorbereiten und schmeckt aufgewärmt noch besser! Für die Kids: mild Currypaste nehmen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DI 10.6. — 6 Pers. -->
+    <div class="day-card" id="2026-06-10">
+      <div class="day-header weekday">
+        <h2>🟢 Di 10.6.</h2>
+        <span class="badge">🎹 Klavier Frida · 🏓 Pickleball Tim · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🍞 Brotzeit</div>
+              <div class="meal-note">Frisches Brot, Käse, Gurke, Tomate — Alltagsfrühstück</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (6 Pers.)</h4>
+              <ul>
+                <li>2 Laibe frisches Brot (gemischt)</li>
+                <li>Käse (Gouda, Emmentaler), Aufschnitt</li>
+                <li>Butter, Marmelade</li>
+                <li>Gurke, Tomaten</li>
+                <li>Milch, Kaffee, Tee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🥟 Tortellini-Auflauf mit Gemüse & Käse</div>
+              <div class="meal-note">Kinderfreundlich, aufwandsarm — perfekt für den vollen Tag</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (6 Pers.)</h4>
+              <ul>
+                <li>3 Pck. Tortellini (Käse oder Gemüse, kühl)</li>
+                <li>1 Zucchini, 1 Paprika, 1 Tomaten-Dose (400g)</li>
+                <li>200g Sahne</li>
+                <li>250g geriebener Käse (Mozzarella + Parmesan)</li>
+                <li>1 Zwiebel, 2 Knoblauchzehen</li>
+                <li>2 EL Olivenöl, Oregano, Salz, Pfeffer</li>
+                <li>Kleiner Beilagensalat</li>
+              </ul>
+              <h4>Zubereitung</h4>
+              <ol>
+                <li>Tortellini nach Packungsanweisung kochen, abgießen.</li>
+                <li>Zwiebel und Knoblauch hacken, in Öl andünsten. Zucchini und Paprika in Würfel, 5 Min mitbraten.</li>
+                <li>Tomaten und Sahne angießen, aufkochen. Mit Oregano, Salz, Pfeffer abschmecken.</li>
+                <li>Tortellini in Auflaufform, Sauce darüber, Käse bestreuen.</li>
+                <li>20 Min bei 200°C überbacken.</li>
+              </ol>
+              <div class="tip">Geht auch mit Spinat statt Zucchini — einfach die Tortellini-Sorte anpassen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MI 11.6. — 6 Pers., Julia abend weg -->
+    <div class="day-card" id="2026-06-11">
+      <div class="day-header solo">
+        <h2>🔵 Mi 11.6.</h2>
+        <span class="badge">👩‍💼 Julia abends bei Anne · 6 Pers. (Tim + Kids + Au Pair)</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥐 Croissants mit Butter & Marmelade</div>
+              <div class="meal-note">Tiefkühl-Croissants — bisschen Luxus unter der Woche</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (6 Pers.)</h4>
+              <ul>
+                <li>1 Packung Tiefkühl-Croissants (8–10 Stück)</li>
+                <li>Butter, Marmelade, Honig</li>
+                <li>Milch, Kaffee, Tee</li>
+                <li>1 Apfel, 1 Banane für die Kids</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🐟 Lachs mit Dillsoße, Reis und Brokkoli</div>
+              <div class="meal-note">Fischtag — Julia ist eh weg, die Kids mögen Lachs</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (6 Pers.)</h4>
+              <ul>
+                <li>6 Lachsfilets (á ca. 150g, frisch oder TK)</li>
+                <li>400g Reis (Basmati)</li>
+                <li>500g Brokkoli (frisch oder TK)</li>
+                <li>200ml Sahne</li>
+                <li>1 Zitrone</li>
+                <li>1 Bund Dill (frisch)</li>
+                <li>2 EL Butter, 1 EL Mehl</li>
+                <li>Salz, Pfeffer, etwas Zucker</li>
+              </ul>
+              <h4>Zubereitung</h4>
+              <ol>
+                <li>Reis kochen. Brokkoli in Röschen teilen, 6 Min dünsten oder in Salzwasser blanchieren.</li>
+                <li>Lachs: Ofen bei 180°C. Filets auf Blech, mit Zitronensaft, Salz, Pfeffer würzen. 15–18 Min im Ofen.</li>
+                <li>Dillsoße: Butter schmelzen, Mehl einrühren. Sahne langsam zugeben, aufkochen. Gehackten Dill und Zitronenschale einrühren.</li>
+                <li>Lachs auf Reis anrichten, Brokkoli dazu, Soße darüber.</li>
+              </ol>
+              <div class="tip">Für die Kids: Lachs in Stücke schneiden, Soße separat anbieten — manche mögen Dill nicht.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DO 12.6. — 6 Pers., Tim OOF, Date Night -->
+    <div class="day-card" id="2026-06-12">
+      <div class="day-header solo">
+        <h2>🔵 Do 12.6.</h2>
+        <span class="badge">👨‍👧 Tim OOF/Moritz · 💑 Date Night 21:00 · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🍳 Rührei mit Toast und Schnittlauch</div>
+              <div class="meal-note">Tim hat Zeit — frisch kochen!</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (6 Pers.)</h4>
+              <ul>
+                <li>10–12 Eier</li>
+                <li>1 Packung Toastbrot (oder frisches Brot)</li>
+                <li>Butter</li>
+                <li>1 Bund Schnittlauch</li>
+                <li>Milch (3 EL fürs Rührei)</li>
+                <li>Salz, Pfeffer</li>
+                <li>Optional: Käsewürfel, Schinkenwürfel</li>
+                <li>Tomaten, Gurke als Beilage</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🥩 Schnitzel mit Kartoffelsalat</div>
+              <div class="meal-note">Klassisch, Kinder lieben es — Vorbereitung während Moritz schläft</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (6 Pers.)</h4>
+              <ul>
+                <li>6–8 Schnitzel (pangrösbt, aus der Kühltheke)</li>
+                <li>1,5 kg Kartoffeln (festkochend)</li>
+                <li>1 Glas Mayonnaise oder selbstgemachtes Dressing</li>
+                <li>1 Zwiebel, 1 Bund Schnittlauch</li>
+                <li>3 Gewürzgurken</li>
+                <li>Butter/Öl zum Braten</li>
+                <li>Zitrone, Preiselbeeren als Beilage</li>
+              </ul>
+              <h4>Zubereitung</h4>
+              <ol>
+                <li>Kartoffeln kochen, abkühlen lassen. In Scheiben schneiden.</li>
+                <li>Kartoffelsalat: Zwiebel fein würfeln, Gurken in Scheiben, Schnittlauch hacken. Alles mit Mayo/Marinade mischen. 30 Min ziehen lassen.</li>
+                <li>Schnitzel in Butter/Öl goldbraun braten (3–4 Min pro Seite).</li>
+                <li>Mit Zitrone und Preiselbeeren servieren.</li>
+              </ol>
+              <div class="tip">Kartoffelsalat lässt sich super vormittags vorbereiten! Date Night ab 21:00 — Schnitzel geht schnell.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FR 13.6. — 6 Pers., TuS-Fest -->
+    <div class="day-card" id="2026-06-13">
+      <div class="day-header weekend">
+        <h2>🟡 Fr 13.6.</h2>
+        <span class="badge">🎪 TuS Oberkassel Fest (130 Jahre) · 💑 Date Night · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥣 Müsli & Obst — schnell und unkompliziert</div>
+              <div class="meal-note">TuS-Fest tagsüber — einfach reinkommen und los</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (6 Pers.)</h4>
+              <ul>
+                <li>750g Naturjoghurt</li>
+                <li>500g Haferflocken / Müsli</li>
+                <li>Frisches Obst: Bananen, Äpfel, Beeren</li>
+                <li>Nüsse, Honig</li>
+                <li>Milch, Kaffee, Tee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🍕 Flammkuchen — 2 Varianten</div>
+              <div class="meal-note">Klassisch mit Schinken + vegetarisch mit Ziegenkäse/Rucola. Schnell und easy nach dem Fest.</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details">
+            <div class="meal-details-inner">
+              <h4>Zutaten (6 Pers.)</h4>
+              <ul>
+                <li>3–4 Flammkuchenteigs (fertig aus der Kühltheke)</li>
+                <li><strong>Variante 1 — Klassisch:</strong> Crème fraîche, Speckwürfel, Zwiebelringe</li>
+                <li><strong>Variante 2 — Vegetarisch:</strong> Crème fraîche, Ziegenkäse, Rucola, Honig, Walnüsse</li>
+                <li><strong>Variante 3 — Kids:</strong> Crème fraîche, Käse, Kirschtomaten</li>
+                <li>1 Bund Schnittlauch</li>
+                <li>Kleiner Salat als Beilage</li>
+              </ul>
+              <h4>Zubereitung</h4>
+              <ol>
+                <li>Ofen auf 250°C vorheizen (Ober-/Unterhitze, am höchsten).</li>
+                <li>Teig auf Blech legen, mit Crème fraîche bestreichen.</li>
+                <li>Belag verteilen: Variante 1 mit Speck+Zwiebeln, Variante 2 mit Ziegenkäse.</li>
+                <li>8–10 Min im Ofen, bis der Rand knusprig ist.</li>
+                <li>Variante 2: Rucola und Honig erst nach dem Backen drauf.</li>
+              </ol>
+              <div class="tip">Flammkuchen geht ratz-fatz — perfekt, wenn man vom Fest müde zurückkommt!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- tab-current -->
+
+  <!-- EINKAUFSLISTE TAB -->
+  <div class="tab-content" id="tab-shopping">
+    <div class="shopping-section">
+      <h2>🛒 Einkaufsliste</h2>
+
+      <div class="shop-category">
+        <h3>🥬 Gemüse & Obst</h3>
+        <div class="shop-items">
+          <div class="shop-item"><input type="checkbox"><label>2 Zucchini</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Paprika (rot, gelb, grün)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>500g Brokkoli</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Gurke</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3–4 Tomaten</label></div>
+          <div class="shop-item"><input type="checkbox"><label>800g Spinat (tief)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Zitronen</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Knoblauch (ganze Knolle)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Zwiebeln (rote) + 4 normale</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Stück Ingwer</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Bund Schnittlauch</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Bund Dill</label></div>
+          <div class="shop-item"><input type="checkbox"><label>200g Babyspinat</label></div>
+          <div class="shop-item"><input type="checkbox"><label>500g Möhren</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Gewürzgurken</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 kg Kartoffeln (festkochend)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Bananen, Äpfel, Beeren (Frühstück)</label></div>
+        </div>
+      </div>
+
+      <div class="shop-category">
+        <h3>🐟 Fleisch & Fisch</h3>
+        <div class="shop-items">
+          <div class="shop-item"><input type="checkbox"><label>8 Hähnchenschenkel/-brust (Ofen-Pollo)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Lachsfilets á 150g (für Julia)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>6 Lachsfilets á 150g (Mi-Abendessen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>6–8 Schnitzel pangrösbt (Do-Abend)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Speckwürfel (Flammkuchen)</label></div>
+        </div>
+      </div>
+
+      <div class="shop-category">
+        <h3>🧀 Milchprodukte & Kühlregal</h3>
+        <div class="shop-items">
+          <div class="shop-item"><input type="checkbox"><label>600g Ricotta</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Naturjoghurt</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 kg Naturjoghurt (Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>200ml Sahne</label></div>
+          <div class="shop-item"><input type="checkbox"><label>250g Räucherlachs (falls Sa-Lachs-Variante)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 kg Käse gerieben (Mozzarella + Parmesan)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Käse (Gouda, Emmentaler — Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Aufschnitt (Salami, Schinken — Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Crème fraîche (3 Becher)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Ziegenkäse (Flammkuchen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Butter (2 Packungen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>10–12 Eier (Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Pck. Tortellini (Di-Abend)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3–4 Flammkuchenteigs (Fr-Abend)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Packung Tiefkühl-Croissants</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Mayonnaise (Kartoffelsalat)</label></div>
+        </div>
+      </div>
+
+      <div class="shop-category">
+        <h3>🍚 Vorrat & Trockenes</h3>
+        <div class="shop-items">
+          <div class="shop-item"><input type="checkbox"><label>2 Pck. Lasagneplatten (á 500g)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>500g Basmatireis</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Dosen Kichererbsen (á 400g)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Dosen Kokosmilch (á 400ml)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Dosen passierte Tomaten (á 400g)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Currypaste (gelb oder mild rot)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Naan-Brot oder Fladenbrot (2 Stück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Ciabatta</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1–2 Laibe frisches Brot (verschieden)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>16–20 Brötchen (vom Bäcker, Sa)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Packung Toastbrot</label></div>
+          <div class="shop-item"><input type="checkbox"><label>500g Mehl (Type 405)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Päckchen Backpulver</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Haferflocken (zart + kernig)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Müsli-Mischung</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Ahornsirup</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Honig</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Marmelade (verschiedene Sorten)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Olivenöl, Butter</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Gewürze: Salz, Pfeffer, Oregano, Thymian, Rosmarin, Muskatnuss, Paprikapulver, Kreuzkümmel, Kurkuma</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Preiselbeeren (zum Schnitzel)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Rucola (Flammkuchen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Walnüsse (Flammkuchen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Gemüsebrühe (Pulver oder Würfel)</label></div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- tab-shopping -->
+
+</div>
+
+<footer class="footer">
+  Erstellt mit ❤️ für Familie Heineccius · Juni 2026 · Portionen: 🔵 8 Pers. (Sa–Mo) · ⚪ 6 Pers. (Di–Fr)
+</footer>
+
+<script>
+function toggleAccordion(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+  if (tab === 'current') {
+    document.getElementById('btn-current').classList.add('active');
+    document.getElementById('tab-current').classList.add('active');
+  } else {
+    document.getElementById('btn-shopping').classList.add('active');
+    document.getElementById('tab-shopping').classList.add('active');
+  }
+}
+
+// Highlight today
+const today = new Date().toISOString().split('T')[0];
+const todayCard = document.getElementById(today);
+if (todayCard) {
+  todayCard.classList.add('today');
+}
+
+// Checkbox persistence
+document.querySelectorAll('.shop-item input[type="checkbox"]').forEach((cb, i) => {
+  const key = 'shop_' + i;
+  const saved = localStorage.getItem(key);
+  if (saved === 'true') {
+    cb.checked = true;
+    cb.parentElement.classList.add('checked');
+  }
+  cb.addEventListener('change', () => {
+    localStorage.setItem(key, cb.checked);
+    cb.parentElement.classList.toggle('checked', cb.checked);
+  });
+});
+</script>
+
+</body>
+</html>
