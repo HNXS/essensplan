@@ -21,28 +21,36 @@
   .tab-content { display: none; }
   .tab-content.active { display: block; }
   .day-card { background: white; border-radius: 20px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15); transition: transform 0.2s; border: 3px solid transparent; }
+  .day-card.today { border: 3px solid #ffd700; }
   .day-header { padding: 18px 24px; color: white; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
   .day-header.guests { background: linear-gradient(135deg, #f093fb, #f5576c); }
   .day-header.weekend { background: linear-gradient(135deg, #f6d365, #fda085); }
   .day-header.weekday { background: linear-gradient(135deg, #43e97b, #38f9d7); }
   .day-header.solo { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+  .day-header h2 { font-size: 1.3em; }
+  .badge { background: rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 12px; font-size: 0.8em; }
   .meals { padding: 20px 24px; }
   .meal { margin-bottom: 16px; border-radius: 14px; overflow: hidden; border: 1px solid #eee; }
-  .meal-summary { display: flex; align-items: center; gap: 16px; padding: 12px 16px; cursor: pointer; }
+  .meal-summary { display: flex; align-items: center; gap: 16px; padding: 12px 16px; cursor: pointer; transition: background 0.2s; }
+  .meal-summary:hover { background: #f8f9fa; }
   .meal-img { width: 80px; height: 60px; border-radius: 8px; object-fit: cover; flex-shrink: 0; background: #eee; }
   .meal-info { flex: 1; }
-  .meal-info .meal-type { font-size: 0.75em; text-transform: uppercase; color: #888; }
+  .meal-info .meal-type { font-size: 0.75em; text-transform: uppercase; color: #888; margin-bottom: 2px; }
   .meal-info .meal-name { font-size: 1.05em; font-weight: 600; color: #333; }
-  .meal-toggle { font-size: 1.4em; color: #ccc; transition: transform 0.3s; }
+  .meal-toggle { font-size: 1.4em; color: #ccc; transition: transform 0.3s; flex-shrink: 0; }
   .meal.open .meal-toggle { transform: rotate(180deg); }
   .meal-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #f8f9fa; }
   .meal.open .meal-details { max-height: 1000px; }
-  .meal-details-inner { padding: 16px 20px; font-size: 0.9em; }
-  .shopping-section { background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; }
-  .shop-category h3 { font-size: 0.85em; text-transform: uppercase; color: #667eea; border-bottom: 2px solid #eee; margin-bottom: 10px; }
+  .meal-details-inner { padding: 16px 20px; font-size: 0.9em; line-height: 1.6; }
+  .meal-details-inner h4 { font-size: 0.85em; text-transform: uppercase; color: #667eea; margin-bottom: 8px; }
+  .shopping-section { background: white; border-radius: 20px; padding: 30px; margin-top: 10px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
+  .shopping-section h2 { font-size: 1.5em; margin-bottom: 20px; text-align: center; }
+  .shop-category { margin-bottom: 18px; }
+  .shop-category h3 { font-size: 0.85em; text-transform: uppercase; color: #667eea; border-bottom: 2px solid #eee; margin-bottom: 8px; }
   .shop-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
-  .shop-item { display: flex; align-items: center; gap: 8px; font-size: 0.9em; padding: 4px 0; }
-  @media (max-width: 600px) { body { padding: 10px; } .meal-img { width: 60px; height: 45px; } }
+  .shop-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 0.9em; }
+  .footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.6); font-size: 0.85em; }
+  @media (max-width: 600px) { body { padding: 12px; } header h1 { font-size: 1.6em; } .meal-img { width: 60px; height: 45px; } .tab-btn { padding: 10px 18px; font-size: 0.9em; } }
 </style>
 </head>
 <body>
@@ -50,7 +58,7 @@
 <div class="container">
   <header>
     <h1>🍽️ Familien-Essensplan</h1>
-    <p>Familie Heineccius · 6.–13. Juni 2026</p>
+    <p>Familie Heineccius · 7.–13. Juni 2026</p>
     <div class="legend">
       <span>🟣 Besuch (8 Pers.)</span>
       <span>🟢 Familie (6 Pers.)</span>
@@ -58,16 +66,17 @@
   </header>
 
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('current')">📅 Plan</button>
-    <button class="tab-btn" onclick="switchTab('shopping')">🛒 Einkauf</button>
+    <button class="tab-btn active" id="btn-current" onclick="switchTab('current')">📅 Essensplan</button>
+    <button class="tab-btn" id="btn-shopping" onclick="switchTab('shopping')">🛒 Einkaufsliste</button>
   </div>
 
   <div class="tab-content active" id="tab-current">
+
     <!-- SO 7.6. -->
-    <div class="day-card">
+    <div class="day-card" id="2026-06-07">
       <div class="day-header weekend">
         <h2>🟣 So 7.6. · Sonntag</h2>
-        <span>🏇 Reiten · 8 Pers.</span>
+        <span class="badge">🏇 Reiten · 8 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
@@ -75,11 +84,11 @@
             <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Brötchen">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥐 Sonntags-Frühstück</div>
+              <div class="meal-name">🥞 Pancakes & frische Brötchen</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
-          <div class="meal-details"><div class="meal-details-inner">Frische Brötchen, Eier, Aufschnitt.</div></div>
+          <div class="meal-details"><div class="meal-details-inner">Sonntags-Brunch für alle.</div></div>
         </div>
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
@@ -90,35 +99,35 @@
             </div>
             <div class="meal-toggle">▼</div>
           </div>
-          <div class="meal-details"><div class="meal-details-inner">Zwei große Formen mit Spinat & Ricotta.</div></div>
+          <div class="meal-details"><div class="meal-details-inner">Zwei Formen Spinat-Ricotta-Lasagne.</div></div>
         </div>
       </div>
     </div>
 
     <!-- MO 8.6. -->
-    <div class="day-card">
+    <div class="day-card" id="2026-06-08">
       <div class="day-header guests">
         <h2>🟣 Mo 8.6. · Montag</h2>
-        <span>🎪 Museumsfest · 8 Pers.</span>
+        <span class="badge">🎪 Museumsfest · JHV · 8 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Brot">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Bowl">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🍞 Klassische Brotzeit</div>
+              <div class="meal-name">🥣 Overnight Oats & Beeren</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
-          <div class="meal-details"><div class="meal-details-inner">Gutes Brot, Käse, Obst.</div></div>
+          <div class="meal-details"><div class="meal-details-inner">Gesund vorbereitet für den Start in die Woche.</div></div>
         </div>
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Chicken">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍗 Ofen-Pollo mit Gemüse</div>
+              <div class="meal-name">🍗 Ofen-Pollo mit Zucchini</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
@@ -128,57 +137,183 @@
     </div>
 
     <!-- DI 9.6. -->
-    <div class="day-card">
+    <div class="day-card" id="2026-06-09">
       <div class="day-header guests">
         <h2>🟣 Di 9.6. · Dienstag</h2>
-        <span>🏊 Nora Schwimmen · 8 Pers.</span>
+        <span class="badge">👋 Letzter Tag Schwiegereltern · 8 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
-            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Curry">
+            <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Fruit">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🍏 Joghurt-Buffet & Obst</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">Griechischer Joghurt, Nüsse und Äpfel.</div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Curry">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
               <div class="meal-name">🍛 Kichererbsen-Curry</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
-          <div class="meal-details"><div class="meal-details-inner">Mit Kokosmilch und Basmati-Reis.</div></div>
+          <div class="meal-details"><div class="meal-details-inner">Mildes Curry mit Kokosmilch und Reis.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MI 10.6. -->
+    <div class="day-card" id="2026-06-10">
+      <div class="day-header weekday">
+        <h2>🟢 Mi 10.6. · Mittwoch</h2>
+        <span class="badge">🎹 Klavier · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Brot">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🍞 Vollkornbrot & Avocado</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">Frisches Vollkornbrot vom Bäcker.</div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Pasta">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🥟 Tortellini-Auflauf</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">Mit viel buntem Gemüse überbacken.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DO 11.6. -->
+    <div class="day-card" id="2026-06-11">
+      <div class="day-header solo">
+        <h2>🔵 Do 11.6. · Donnerstag</h2>
+        <span class="badge">👩‍💼 Julia bei Anne · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Porridge">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥣 Warmer Porridge</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">Mit Zimt und Apfelstücken.</div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Salmon">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🐟 Lachs, Reis & Brokkoli</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">Fischtag für die Kids & Tim.</div></div>
         </div>
       </div>
     </div>
 
     <!-- FR 12.6. -->
-    <div class="day-card">
+    <div class="day-card" id="2026-06-12">
       <div class="day-header solo">
         <h2>🔵 Fr 12.6. · Freitag</h2>
-        <span>💑 Date Night · 6 Pers.</span>
+        <span class="badge">👨‍👧 Tim+Moritz · Date Night · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
-            <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Fischstäbchen">
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Egg">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🍳 Rührei & Gurke</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">Frisch aus der Pfanne.</div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Fishsticks">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
               <div class="meal-name">🐟 Fischstäbchen & Püree</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
-          <div class="meal-details"><div class="meal-details-inner">Selbstgemachtes Püree & Erbsen.</div></div>
+          <div class="meal-details"><div class="meal-details-inner">Mit Erbsen und selbstgemachtem Püree.</div></div>
         </div>
       </div>
     </div>
+
+    <!-- SA 13.6. -->
+    <div class="day-card" id="2026-06-13">
+      <div class="day-header weekend">
+        <h2>🟡 Sa 13.6. · Samstag</h2>
+        <span class="badge">🎪 TuS-Fest · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Cereal">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥣 Joghurt mit Knuspermüsli</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">Schnell vor dem Fest.</div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=200&q=80" class="meal-img" alt="Pizza">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🍕 Flammkuchen</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">Verschiedene Varianten (Speck/Veggi).</div></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="tab-content" id="tab-shopping">
     <div class="shopping-section">
-      <h2>🛒 Einkauf</h2>
+      <h2>🛒 Einkaufsliste</h2>
       <div class="shop-category">
         <h3>🥬 Frisches</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>Zucchini, Paprika, Brokkoli</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Kartoffeln (Püree)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Salat, Tomaten, Gurke</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Zucchini, Paprika, Brokkoli, Gurke, Tomaten</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Kartoffeln (Püree), Zwiebeln, Knoblauch</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Beeren, Äpfel, Bananen, Avocado</label></div>
+        </div>
+      </div>
+      <div class="shop-category">
+        <h3>🧊 Kühlung & Fleisch</h3>
+        <div class="shop-items">
+          <div class="shop-item"><input type="checkbox"><label>Hähnchen (Ofen), Lachsfilets, Fischstäbchen</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Eier (12er), Joghurt (1kg), Sahne, Ricotta</label></div>
         </div>
       </div>
     </div>
@@ -188,10 +323,10 @@
 <script>
 function toggleAccordion(el) { el.parentElement.classList.toggle('open'); }
 function switchTab(tab) {
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   event.target.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
 }
 </script>
 </body>
