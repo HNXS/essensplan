@@ -12,7 +12,7 @@
   header { text-align: center; padding: 30px 20px 10px; color: white; }
   header h1 { font-size: 2.2em; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
   header p { font-size: 1.1em; opacity: 0.9; }
-  .legend { display: flex; justify-content: center; gap: 20px; margin: 15px 0; flex-wrap: wrap; }
+  .legend { display: flex; justify-content: center; gap: 12px; margin: 15px 0; flex-wrap: wrap; }
   .legend span { background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.85em; color: white; }
   .tab-nav { display: flex; justify-content: center; gap: 10px; margin: 20px 0 25px; flex-wrap: wrap; }
   .tab-btn { padding: 12px 28px; border: 2px solid rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); color: white; border-radius: 30px; font-size: 1em; font-weight: 600; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px); }
@@ -29,10 +29,11 @@
   .day-header.solo { background: linear-gradient(135deg, #b8aec8, #9a8eaa); }
   .day-header h2 { font-size: 1.3em; }
   .day-header .badge { background: rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 12px; font-size: 0.8em; }
-  .meals { padding: 20px 24px; }
-  .meal { margin-bottom: 16px; border-radius: 14px; overflow: hidden; border: 1px solid #eee; }
-  .meal:last-child { margin-bottom: 0; }
-  .meal-summary { display: flex; align-items: center; gap: 16px; padding: 12px 16px; cursor: pointer; user-select: none; transition: background 0.2s; }
+  .meals { padding: 0; }
+  .meal { margin: 0; border-radius: 0; overflow: hidden; border-bottom: 1px solid #eee; }
+  .meal:last-child { border-bottom: none; }
+  .meal-image { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .meal-summary { display: flex; align-items: center; gap: 16px; padding: 14px 20px; cursor: pointer; user-select: none; transition: background 0.2s; }
   .meal-summary:hover { background: #f8f9fa; }
   .meal-info { flex: 1; }
   .meal-info .meal-type { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 2px; }
@@ -42,38 +43,21 @@
   .meal.open .meal-toggle { transform: rotate(180deg); }
   .meal-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #f8f9fa; }
   .meal.open .meal-details { max-height: 2000px; }
-  .meal-details-inner { padding: 16px 20px; font-size: 0.9em; line-height: 1.6; }
-  .meal-details-inner h4 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #667eea; margin-bottom: 8px; }
-  .meal-details-inner ul { list-style: none; margin-bottom: 14px; }
+  .meal-details-inner { padding: 16px 20px; font-size: 0.9em; line-height: 1.7; }
+  .meal-details-inner h4 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #667eea; margin-bottom: 8px; margin-top: 12px; }
+  .meal-details-inner h4:first-child { margin-top: 0; }
+  .meal-details-inner ul { list-style: none; margin-bottom: 10px; }
   .meal-details-inner ul li::before { content: "•"; color: #667eea; margin-right: 8px; }
-  .meal-details-inner ol { margin-bottom: 14px; padding-left: 20px; }
+  .meal-details-inner ol { margin-bottom: 10px; padding-left: 20px; }
+  .meal-details-inner ol li { margin-bottom: 4px; }
   .meal-details-inner .tip { background: #fff3cd; padding: 10px 14px; border-radius: 10px; font-size: 0.88em; margin-top: 8px; }
   .meal-details-inner .tip::before { content: "💡 "; }
-
-  /* Archiv-Karten */
-  .archive-card { background: #f5f5f7; border-radius: 16px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 2px solid transparent; transition: transform 0.2s; }
-  .archive-card:hover { transform: translateY(-1px); }
-  .archive-card .day-header { padding: 14px 20px; }
-  .archive-card .day-header h2 { font-size: 1.1em; }
-  .archive-card .day-header .badge { font-size: 0.75em; }
-  .archive-card .day-header.weekend { background: linear-gradient(135deg, #b8c6d6, #9aaabf); }
-  .archive-card .day-header.guests { background: linear-gradient(135deg, #c3b8d6, #a09abf); }
-  .archive-card .day-header.weekday { background: linear-gradient(135deg, #a8c8b8, #8aaa9a); }
-  .archive-card .day-header.solo { background: linear-gradient(135deg, #b8aec8, #9a8eaa); }
-  .archive-card .meals { padding: 14px 18px; }
-  .archive-card .meal { border-color: #e0e0e0; }
-  .archive-card .meal-info .meal-name { font-size: 0.98em; color: #555; }
-  .archive-card .meal-info .meal-type { color: #aaa; }
-  .archive-card .meal-info .meal-note { color: #bbb; }
-  .archive-card .meal-details-inner { font-size: 0.85em; }
-  .archive-card .meal-details-inner h4 { color: #999; }
-
   .shopping-section { background: white; border-radius: 20px; padding: 30px; margin-top: 10px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
   .shopping-section h2 { font-size: 1.5em; margin-bottom: 20px; text-align: center; }
   .shop-category { margin-bottom: 18px; }
   .shop-category h3 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #667eea; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #eee; }
-  .shop-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
-  .shop-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 0.9em; }
+  .shop-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px; }
+  .shop-item { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 0.9em; }
   .shop-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: #667eea; }
   .shop-item.checked label { text-decoration: line-through; opacity: 0.5; }
   .archive-intro { text-align: center; color: white; margin-bottom: 20px; font-size: 0.9em; opacity: 0.8; }
@@ -81,12 +65,13 @@
   @media (max-width: 600px) {
     body { padding: 12px; }
     header h1 { font-size: 1.6em; }
-    .meals { padding: 14px 16px; }
-    .day-header { padding: 14px 18px; }
+    .meal-summary { padding: 12px 14px; }
+    .meal-details-inner { padding: 12px 14px; }
+    .day-header { padding: 14px 16px; }
     .day-header h2 { font-size: 1.1em; }
+    .meal-image { height: 160px; }
     .shopping-section { padding: 20px 16px; }
     .tab-btn { padding: 10px 18px; font-size: 0.9em; }
-    .archive-card .meals { padding: 10px 14px; }
   }
 </style>
 </head>
@@ -97,9 +82,9 @@
     <h1>🍽️ Familien-Essensplan</h1>
     <p>Familie Heineccius · 29. Juni – 4. Juli 2026</p>
     <div class="legend">
-      <span>🟡 Wochenende (6 Pers.)</span>
       <span>🟢 Werktag (6 Pers.)</span>
       <span>🟣 Julia weg (5 Pers.)</span>
+      <span>🟡 Wochenende (6 Pers.)</span>
       <span>⭐ Heute</span>
     </div>
   </header>
@@ -107,13 +92,12 @@
   <div class="tab-nav">
     <button class="tab-btn active" id="btn-current" onclick="switchTab('current')">📅 Essensplan</button>
     <button class="tab-btn" id="btn-shopping" onclick="switchTab('shopping')">🛒 Einkaufsliste</button>
-    <button class="tab-btn" id="btn-archive" onclick="switchTab('archive')">📦 Archiv</button>
   </div>
 
-  <!-- ===== ESENSPLAN TAB ===== -->
+  <!-- ===== ESENSPLAN ===== -->
   <div class="tab-content active" id="tab-current">
 
-    <!-- MO 29.6. — HEUTE, 6 Pers. -->
+    <!-- MO 29.6. — HEUTE -->
     <div class="day-card today" id="2026-06-29">
       <div class="day-header weekday">
         <h2>🟢 Mo 29.6. · Montag · ⭐ Heute</h2>
@@ -121,10 +105,11 @@
       </div>
       <div class="meals">
         <div class="meal">
+          <img src="images/orzo-pfanne.jpg" alt="Zitronige Orzo-Pfanne mit Feta &amp; Kirschtomaten" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍋 Zitronige Orzo-Pfanne mit Feta & Kirschtomaten</div>
+              <div class="meal-name">Zitronige Orzo-Pfanne mit Feta &amp; Kirschtomaten</div>
               <div class="meal-note">Sommerlich, leicht und schnell — perfekt nach dem Sport</div>
             </div>
             <div class="meal-toggle">▼</div>
@@ -135,25 +120,29 @@
               <li>500g Orzo (Risoni Nudeln)</li>
               <li>400g Kirschtomaten (halbiert)</li>
               <li>250g Feta (in Würfeln)</li>
-              <li>1 Zitrone (Bio: Saft + Abrieb)</li>
-              <li>2 Knoblauchzehen</li>
-              <li>1 Bund Petersilie oder Basilikum</li>
+              <li>1 Bio-Zitrone (Saft + Abrieb)</li>
+              <li>2 Knoblauchzehen (gepresst)</li>
+              <li>1 Bund Petersilie oder Basilikum (gehackt)</li>
               <li>4 EL Olivenöl</li>
-              <li>Salz, Pfeffer, etwas Oregano</li>
+              <li>Salz, Pfeffer, 1 TL Oregano (getrocknet)</li>
+              <li>50g Pinienkerne (optional, geröstet)</li>
             </ul>
             <h4>Zubereitung</h4>
             <ol>
-              <li>Orzo in Salzwasser kochen, abgießen.</li>
-              <li>Knoblauch in Öl kurz andünsten, Kirschtomaten zugeben und 3 Min braten.</li>
-              <li>Orzo untermischen, mit Zitronensaft, Abrieb und Gewürzen abschmecken.</li>
-              <li>Feta und Kräuter unterheben. Warm oder lauwarm servieren.</li>
+              <li>Orzo in reichlich Salzwasser nach Packungsanweisung kochen (ca. 9 Min), abgießen und kurz beiseite stellen.</li>
+              <li>In einer großen Pfanne Olivenöl erhitzen, Knoblauch 1 Min andünsten.</li>
+              <li>Kirschtomaten zugeben und bei mittlerer Hitze 4–5 Min braten, bis sie weich werden und Saft abgeben.</li>
+              <li>Zitronensaft und -abrieb einrühren, Orzo dazugeben und alles gut vermengen.</li>
+              <li>Mit Salz, Pfeffer und Oregano abschmecken.</li>
+              <li>Feta-Würfel und Kräuter unterheben, auf Tellern anrichten. Nach Belieben mit gerösteten Pinienkernen bestreuen.</li>
             </ol>
+            <div class="tip">Orzo geht auch kalt als Salat — Reste für den nächsten Tag sind ein Traum!</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- DI 30.6. — 6 Pers. -->
+    <!-- DI 30.6. -->
     <div class="day-card" id="2026-06-30">
       <div class="day-header weekday">
         <h2>🟢 Di 30.6. · Dienstag</h2>
@@ -161,26 +150,38 @@
       </div>
       <div class="meals">
         <div class="meal">
+          <img src="images/muesli-beeren.jpg" alt="Müsli &amp; Joghurt mit frischen Beeren" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥣 Müsli & Joghurt mit frischen Beeren</div>
+              <div class="meal-name">Müsli &amp; Joghurt mit frischen Beeren</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>Joghurt, Haferflocken, Müsli-Mix</li>
-              <li>Sommerbeeren (Heidelbeeren/Erdbeeren)</li>
-              <li>Nüsse & Honig</li>
+              <li>750g Naturjoghurt</li>
+              <li>500g Haferflocken / Müsli-Mischung</li>
+              <li>300g frische Beeren (Heidelbeeren, Erdbeeren, Himbeeren)</li>
+              <li>2 Bananen in Scheiben</li>
+              <li>Handvoll Walnüsse oder Mandeln</li>
+              <li>Honig oder Ahornsirup zum Süßen</li>
+              <li>Milch nach Belieben</li>
             </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Joghurt in Schüsseln verteilen, Müsli/Haferflocken darüber streuen.</li>
+              <li>Beeren und Bananenscheiben darauf verteilen, Nüsse und Honig nach Geschmack.</li>
+            </ol>
           </div></div>
         </div>
         <div class="meal">
+          <img src="images/kichererbsen-curry.jpg" alt="Mildes Kichererbsen-Curry mit Reis" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍛 Mildes Kichererbsen-Curry mit Reis</div>
+              <div class="meal-name">Mildes Kichererbsen-Curry mit Reis</div>
               <div class="meal-note">Sommer-Curry mit Zucchini und Kokosmilch</div>
             </div>
             <div class="meal-toggle">▼</div>
@@ -188,19 +189,36 @@
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>2 Dosen Kichererbsen</li>
-              <li>1 Dose Kokosmilch</li>
+              <li>2 Dosen Kichererbsen (á 400g, abgetropft)</li>
+              <li>1 Dose Kokosmilch (400ml)</li>
+              <li>2 EL gelbe Currypaste (mild)</li>
+              <li>1 Dose passierte Tomaten (400g)</li>
+              <li>400g Basmatireis</li>
               <li>1 Zucchini (in Würfeln)</li>
-              <li>400g Basmati-Reis</li>
-              <li>Zwiebel, Knoblauch, gelbe Currypaste</li>
-              <li>1 Paprika</li>
+              <li>1 rote Paprika (in Würfeln)</li>
+              <li>1 Zwiebel, 2 Knoblauchzehen, 1 Stück Ingwer (2cm)</li>
+              <li>2 EL Olivenöl</li>
+              <li>1 TL Kurkuma, 1 TL Kreuzkümmel</li>
+              <li>200g Babyspinat</li>
+              <li>Salz, Pfeffer</li>
             </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Basmatireis nach Packungsanweisung kochen und warmhalten.</li>
+              <li>Zwiebel, Knoblauch und Ingwer fein hacken. In Olivenöl andünsten (3 Min).</li>
+              <li>Currypaste, Kurkuma und Kreuzkümmel zugeben, 1 Min mitrösten bis es duftet.</li>
+              <li>Zucchini und Paprika zugeben, 3 Min mitbraten.</li>
+              <li>Kichererbsen, Kokosmilch und passierte Tomaten angießen. 15 Min bei mittlerer Hitze köcheln lassen.</li>
+              <li>Babyspinat unterheben, 2 Min zusammenfallen lassen. Mit Salz und Pfeffer abschmecken.</li>
+              <li>Mit Reis servieren. Nach Belieben mit Naan-Brot dazu.</li>
+            </ol>
+            <div class="tip">Curry schmeckt am nächsten Tag noch besser — Reste sind ein perfektes Mittagessen! 🍛</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- MI 1.7. — 6 Pers. -->
+    <!-- MI 1.7. -->
     <div class="day-card" id="2026-07-01">
       <div class="day-header weekday">
         <h2>🟢 Mi 1.7. · Mittwoch</h2>
@@ -208,26 +226,38 @@
       </div>
       <div class="meals">
         <div class="meal">
+          <img src="images/brotzeit-frischkaese.jpg" alt="Brotzeit mit Frischkäse &amp; Gurke" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🍞 Brotzeit mit Frischkäse & Gurke</div>
+              <div class="meal-name">Brotzeit mit Frischkäse &amp; Gurke</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>Frisches Brot vom Bäcker</li>
-              <li>Frischkäse, Käse-Aufschnitt</li>
-              <li>Gurken- und Tomatenscheiben</li>
+              <li>1–2 Laibe frisches Brot (gemischt)</li>
+              <li>Frischkäse (Kräuter oder Natur)</li>
+              <li>Gouda und Emmentaler in Scheiben</li>
+              <li>Aufschnitt nach Wahl</li>
+              <li>Butter</li>
+              <li>1 Gurke, 3–4 Tomaten</li>
+              <li>Milch, Kaffee, Tee</li>
             </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Brot in Scheiben schneiden, Butter und Frischkäse bereitstellen.</li>
+              <li>Gurke und Tomaten in Scheiben schneiden, Käse und Aufschnitt arrangieren. Jeder bedient sich selbst.</li>
+            </ol>
           </div></div>
         </div>
         <div class="meal">
+          <img src="images/pasta-primavera.jpg" alt="Pasta Primavera mit buntem Sommergemüse" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍝 Pasta Primavera mit buntem Sommergemüse</div>
+              <div class="meal-name">Pasta Primavera mit buntem Sommergemüse</div>
               <div class="meal-note">Viel frisches Gemüse, Parmesan und Olivenöl</div>
             </div>
             <div class="meal-toggle">▼</div>
@@ -236,61 +266,112 @@
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
               <li>500g Farfalle oder Penne</li>
-              <li>Zucchini, Paprika, Erbsen (jung)</li>
-              <li>Parmesan, Pinienkerne</li>
-              <li>Frischer Knoblauch & Olivenöl</li>
+              <li>2 Zucchini (in Scheiben)</li>
+              <li>2 Paprika (rot + gelb, in Streifen)</li>
+              <li>250g Kirschtomaten (halbiert)</li>
+              <li>200g frische Erbsen oder TK-Erbsen</li>
+              <li>1 Zucchiniblüte oder 1 Aubergine (optional)</li>
+              <li>3 Knoblauchzehen</li>
+              <li>50g Pinienkerne (geröstet)</li>
+              <li>80g Parmesan (frisch gerieben)</li>
+              <li>1 Bund Basilikum</li>
+              <li>4 EL Olivenöl</li>
+              <li>Salz, Pfeffer, 1 Prise Chili (optional)</li>
             </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Nudeln in Salzwasser al dente kochen, 1 Schöpfer Kochwasser aufheben, abgießen.</li>
+              <li>Pinienkerne in einer Pfanne ohne Fett goldbraun rösten, beiseite legen.</li>
+              <li>In der gleichen Pfanne Olivenöl erhitzen, Knoblauch 1 Min andünsten.</li>
+              <li>Zucchini und Paprika zugeben, bei mittlerer Hitze 5 Min braten.</li>
+              <li>Erbsen und Kirschtomaten zugeben, weitere 3 Min garen.</li>
+              <li>Nudeln und Kochwasser unterheben, mit Salz, Pfeffer und Chili abschmecken.</li>
+              <li>Mit Parmesan, Pinienkernen und Basilikum servieren.</li>
+            </ol>
+            <div class="tip">Primavera heißt «Frühling» — das perfekte saisonale Gericht! Auch kalt als Nudelsalat lecker. 🌿</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- DO 2.7. — Julia weg, 5 Pers. -->
+    <!-- DO 2.7. — Julia weg -->
     <div class="day-card" id="2026-07-02">
       <div class="day-header solo">
         <h2>🟣 Do 2.7. · Donnerstag</h2>
-        <span class="badge">🚗 Auto abgeben 8:00 · Julia weg · 5 Pers.</span>
+        <span class="badge">🚗 Auto abgeben · Julia weg · 5 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
+          <img src="images/ruehrei-schnittlauch.jpg" alt="Rührei mit Schnittlauch auf Toast" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🍳 Rührei mit Schnittlauch auf Toast</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <ul>
-              <li>10 Bio-Eier</li>
-              <li>Frischer Schnittlauch aus dem Garten/Bund</li>
-              <li>Vollkorntoast oder Brot</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🐟 Knusprige Fischstäbchen mit Kartoffelstampf</div>
-              <div class="meal-note">Kinderliebling — Tim managt das Solo</div>
+              <div class="meal-name">Rührei mit Schnittlauch auf Toast</div>
+              <div class="meal-note">Schnell und gut — Tim hat einen vollen Tag vor sich</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (5 Pers.)</h4>
             <ul>
-              <li>2 Pck. Fischstäbchen</li>
-              <li>1,2 kg Kartoffeln (mehlig)</li>
-              <li>Butter, Milch, Muskatnuss</li>
-              <li>Gedünstete Erbsen & Möhren</li>
+              <li>10 Bio-Eier</li>
+              <li>1 Packung Toastbrot oder frisches Brot</li>
+              <li>Butter</li>
+              <li>1 Bund Schnittlauch (gehackt)</li>
+              <li>3 EL Milch</li>
+              <li>Salz, Pfeffer</li>
+              <li>Tomaten und Gurke als Beilage</li>
             </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Eier in eine Schüssel aufschlagen, Milch, Salz und Pfeffer zugeben und leicht verquirlen (nicht schaumig schlagen).</li>
+              <li>Butter in einer großen Pfanne bei mittlerer Hitze schmelzen.</li>
+              <li>Eimischung dazugeben und mit einem Pfannenwender sanft von den Rändern zur Mitte schieben — nicht rühren, sondern ziehen lassen.</li>
+              <li>Nach ca. 3–4 Min, wenn das Rührei noch leicht cremig ist, vom Herd nehmen.</li>
+              <li>Schnittlauch unterheben und sofort auf Toast oder frischem Brot servieren.</li>
+            </ol>
+            <div class="tip">Das Geheimnis: niedrige Hitze und nicht zu lange garen — cremig ist besser als trocken! 🍳</div>
+          </div></div>
+        </div>
+        <div class="meal">
+          <img src="images/fischstaebchen-kartoffelstampf.jpg" alt="Fischstäbchen mit Kartoffelstampf" class="meal-image">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">Fischstäbchen mit Kartoffelstampf &amp; Erbsen</div>
+              <div class="meal-note">Kinderliebling — Solo-Tag für Tim</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (5 Pers.)</h4>
+            <ul>
+              <li>2 Pck. Fischstäbchen (Ofen-Qualität, ca. 20 Stück)</li>
+              <li>1,2 kg Kartoffeln (mehlkochend)</li>
+              <li>200ml Milch</li>
+              <li>50g Butter</li>
+              <li>Muskatnuss (frisch gerieben)</li>
+              <li>Salz, Pfeffer</li>
+              <li>400g Erbsen (TK oder Glas)</li>
+              <li>Zitronenspalten</li>
+              <li>Remoulade oder Ketchup</li>
+            </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Kartoffeln schälen und in Stücke schneiden. In Salzwasser ca. 20 Min kochen bis weich.</li>
+              <li>Fischstäbchen im vorgeheizten Ofen bei 220°C ca. 15 Min backen (nach 8 Min wenden).</li>
+              <li>Erbsen in Salzwasser 5 Min kochen, abgießen.</li>
+              <li>Kartoffeln abgießen, Milch und Butter zugeben, mit einem Kartoffelstampfer cremig stampfen.</li>
+              <li>Mit Muskatnuss, Salz und Pfeffer abschmecken.</li>
+              <li>Fischstäbchen mit Stampf, Erbsen, Zitrone und Remoulade servieren.</li>
+            </ol>
+            <div class="tip">Stampf vorher zubereiten und im Ofen warmhalten — dann passt das Timing perfekt! 🐟</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- FR 3.7. — Julia weg, Date Night 21:00, 5 Pers. -->
+    <!-- FR 3.7. — Julia weg, Date Night -->
     <div class="day-card" id="2026-07-03">
       <div class="day-header solo">
         <h2>🟣 Fr 3.7. · Freitag</h2>
@@ -298,43 +379,68 @@
       </div>
       <div class="meals">
         <div class="meal">
+          <img src="images/frische-broetchen.jpg" alt="Frische Brötchen vom Bäcker" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥐 Wochenend-Warmup: Frische Brötchen</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <ul>
-              <li>Brötchen-Mix vom Bäcker</li>
-              <li>Süße & herzhafte Beläge</li>
-              <li>Obstteller</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍕 Selbstgemachte Pizza / Flammkuchen</div>
-              <div class="meal-note">Teig fertig oder selbstgemacht — kreativ belegen</div>
+              <div class="meal-name">Frische Brötchen vom Bäcker</div>
+              <div class="meal-note">Klassisches Freitag-Frühstück — die Woche geht zu Ende</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (5 Pers.)</h4>
             <ul>
-              <li>Pizzateig (Kühlregal oder Mehl/Hefe)</li>
-              <li>Tomatensauce, Mozzarella, Gouda</li>
-              <li>Mais, Paprika, Oliven</li>
+              <li>12–15 Brötchen vom Bäcker (verschiedene Sorten)</li>
+              <li>Aufschnitt: Salami, Schinken, Käse</li>
+              <li>Frischkäse, Butter, Marmelade, Honig</li>
+              <li>1 Gurke, 3–4 Tomaten</li>
+              <li>Milch, Kaffee, Tee</li>
             </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Brötchen früh vom Bäcker holen — frisch schmecken sie am besten!</li>
+              <li>Aufschnitt, Käse und Aufstriche anrichten, Gurke und Tomaten in Scheiben schneiden. Jeder belegt sich seine Brötchen selbst.</li>
+            </ol>
+          </div></div>
+        </div>
+        <div class="meal">
+          <img src="images/pizza-flammkuchen.jpg" alt="Selbstgemachte Pizza / Flammkuchen" class="meal-image">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">Selbstgemachte Pizza &amp; Flammkuchen</div>
+              <div class="meal-note">Jeder belegt seine eigene — kreativ und gemütlich</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (5 Pers.)</h4>
+            <ul>
+              <li>2 Pck. Pizzateig (Kühlregal) oder selbstgemachter Teig (500g Mehl, 1 Pck Hefe, 300ml Wasser, 2 EL Olivenöl, 1 TL Salz)</li>
+              <li>1 Glas Tomatensauce (400g)</li>
+              <li>300g geriebener Mozzarella</li>
+              <li>200g geriebener Gouda</li>
+              <li>Beläge nach Wahl: Salami, Schinken, Paprika, Mais, Zwiebeln, Oliven, Champignons, Rucola</li>
+              <li>Für Flammkuchen: Crème fraîche, Zwiebeln, Speck (oder ohne für vegetarisch)</li>
+              <li>Oregano, Basilikum</li>
+            </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Ofen auf 250°C vorheizen (Ober-/Unterhitze, höchste Stufe). Backblech mit Backpapier auslegen.</li>
+              <li>Pizzateig ausrollen (oder selbstgemachten Teig: Hefe im Wasser auflösen, mit Mehl, Öl und Salz verkneten, 30 Min gehen lassen).</li>
+              <li>Für Pizza: Teig mit Tomatensauce bestreichen, Käse und Beläge nach Wahl darauf verteilen.</li>
+              <li>Für Flammkuchen: Teig dünn ausrollen, mit Crème fraîche bestreichen, Zwiebelringe und Gewürze darauf.</li>
+              <li>Im Ofen 12–15 Min backen (Pizza) bzw. 8–10 Min (Flammkuchen), bis der Rand knusprig ist.</li>
+              <li>Mit frischem Basilikum servieren.</li>
+            </ol>
+            <div class="tip">Der Clou: Jedes Kind darf seine eigene Mini-Pizza belegen! Vorbereitung dauert 10 Min, Backzeit 15 Min. 🍕</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- SA 4.7. — Wochenende, Sommerfest, Reiten, 6 Pers. -->
+    <!-- SA 4.7. — Wochenende -->
     <div class="day-card" id="2026-07-04">
       <div class="day-header weekend">
         <h2>🟡 Sa 4.7. · Samstag</h2>
@@ -342,26 +448,45 @@
       </div>
       <div class="meals">
         <div class="meal">
+          <img src="images/pancakes-ahornsirup.jpg" alt="Pancakes mit Ahornsirup" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥞 Große Pancakes mit Ahornsirup</div>
+              <div class="meal-name">Pancakes mit Beeren &amp; Ahornsirup</div>
               <div class="meal-note">Wochenend-Highlight vor dem vollen Programm</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>Pancake-Teig, Butter</li>
-              <li>Ahornsirup, Bananen, Beeren</li>
+              <li>400g Mehl (Type 405)</li>
+              <li>4 Eier</li>
+              <li>500ml Milch</li>
+              <li>1 Päckchen Backpulver</li>
+              <li>1 Prise Salz, 2 EL Zucker</li>
+              <li>Butter zum Ausbacken</li>
+              <li>Ahornsirup</li>
+              <li>300g frische oder TK-Beeren (Heidelbeeren, Erdbeeren)</li>
+              <li>2 Bananen (in Scheiben)</li>
             </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Mehl, Backpulver, Salz und Zucker in einer großen Schüssel mischen.</li>
+              <li>Eier und Milch verquirlen, nach und nach unter den Mehlmix rühren bis ein glatter Teig entsteht (keine Klümpchen).</li>
+              <li>Etwas Butter in einer beschichteten Pfanne bei mittlerer Hitze schmelzen.</li>
+              <li>Kleine Portionen Teig (ca. 2 EL pro Pancake) ins heiße Fett geben. Wenn Bläschen an der Oberfläche entstehen (2–3 Min), wenden und weitere 1–2 Min backen.</li>
+              <li>Stack auf Teller legen, mit Beeren, Bananenscheiben und Ahornsirup servieren.</li>
+            </ol>
+            <div class="tip">Teig 10 Min ruhen lassen vor dem Backen — dann werden sie fluffiger! 🥞</div>
           </div></div>
         </div>
         <div class="meal">
+          <img src="images/veggie-burger.jpg" alt="Veggie-Burger vom Grill" class="meal-image">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍔 Veggie-Burger vom Grill (oder Pfanne)</div>
+              <div class="meal-name">Veggie-Burger vom Grill (oder Pfanne)</div>
               <div class="meal-note">Entspannter Ausklang nach dem Sommerfest</div>
             </div>
             <div class="meal-toggle">▼</div>
@@ -369,10 +494,26 @@
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>Burger-Buns, Veggie-Patties</li>
-              <li>Salat, Tomaten, Gurken, Zwiebeln</li>
-              <li>Burger-Sauce, Ketchup</li>
+              <li>6 Burger-Brötchen (Brioche oder Sesam)</li>
+              <li>6 Veggie-Patties (Kühlregal, z.B. Garten Gourmet oder Beyond Meat)</li>
+              <li>1 Eisbergsalat (in Blättern)</li>
+              <li>2 Tomaten (in Scheiben)</li>
+              <li>1 rote Zwiebel (in Ringen)</li>
+              <li>6 Scheiben Cheddar oder Gouda</li>
+              <li>Essiggurken (in Scheiben)</li>
+              <li>Burger-Sauce: 4 EL Ketchup + 4 EL Mayonnaise + 2 TL Senf + 1 TL Essiggurken-Relish</li>
+              <li>Pommes oder Kartoffelwedges als Beilage (optional)</li>
             </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Burger-Sauce anrühren: Ketchup, Mayo, Senf und Relish verrühren.</li>
+              <li>Veggie-Patties nach Packungsanweisung in der Pfanne oder auf dem Grill braten (ca. 4–5 Min pro Seite).</li>
+              <li>In der letzten Minute eine Käsescheibe auf jedes Patty legen und schmelzen lassen.</li>
+              <li>Burger-Brötchen aufschneiden und kurz toasten (1 Min im Ofen oder auf dem Grill).</li>
+              <li>Untere Brötchenhälfte mit Sauce bestreichen, dann Salat, Patty mit Käse, Tomate, Zwiebelringe, Essiggurke und obere Brötchenhälfte drauf.</li>
+              <li>Mit Pommes oder Wedges servieren.</li>
+            </ol>
+            <div class="tip">Brötchen kurz toasten macht den Unterschied — knusprig vs. labberig! 🍔</div>
           </div></div>
         </div>
       </div>
@@ -380,63 +521,139 @@
 
   </div><!-- tab-current -->
 
-  <!-- ===== EINKAUFSLISTE TAB ===== -->
+  <!-- ===== EINKAUFSLISTE ===== -->
   <div class="tab-content" id="tab-shopping">
     <div class="shopping-section">
-      <h2>🛒 Einkaufsliste · Fokus Mo-Sa</h2>
+      <h2>🛒 Einkaufsliste · 29. Juni – 4. Juli 2026</h2>
+
       <div class="shop-category">
-        <h3>🥬 Gemüse & Obst</h3>
+        <h3>🥬 Gemüse &amp; Obst</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>500g Kirschtomaten (Mo + Mi + Fr)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Kirschtomaten (Mo + Mi)</label></div>
           <div class="shop-item"><input type="checkbox"><label>3 Zucchini (Di + Mi)</label></div>
           <div class="shop-item"><input type="checkbox"><label>3 Paprika bunt (Di + Mi + Fr)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Gurke (Mi + Fr + Sa)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Bund Petersilie (Mo)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Gurke (Mi + Do + Fr)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3–4 Tomaten (Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Bund Petersilie oder Basilikum (Mo)</label></div>
           <div class="shop-item"><input type="checkbox"><label>1 Bund Schnittlauch (Do)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 kg Kartoffeln (mehlig für Do)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Sommerbeeren (Beutel/Schale für Di + Sa)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>3 Bananen (Sa Pancakes)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>3 Äpfel (Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Stück Ingwer (Di)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Knoblauch-Knollen</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Zitrone (Mo + Do)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>200g frische Erbsen oder TK-Erbsen (Mi)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>200g Babyspinat (Di)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>300g Beeren frisch (Di + Sa)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Bananen (Sa)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Äpfel</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Eisbergsalat (Sa)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 rote Zwiebel (Sa)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Zwiebel (Di)</label></div>
         </div>
       </div>
+
       <div class="shop-category">
-        <h3>🧀 Kühlregal & Vorrat</h3>
+        <h3>🐟 Fisch &amp; Aufschnitt</h3>
+        <div class="shop-items">
+          <div class="shop-item"><input type="checkbox"><label>2 Pck. Fischstäbchen Ofen-Qualität (Do)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Aufschnitt: Salami, Schinken (Frühstück)</label></div>
+        </div>
+      </div>
+
+      <div class="shop-category">
+        <h3>🧀 Milchprodukte &amp; Kühlregal</h3>
+        <div class="shop-items">
+          <div class="shop-item"><input type="checkbox"><label>750g Naturjoghurt (Di Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>600ml Milch (Frühstück + Do Stampf)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>250g Feta (Mo Orzo)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>300g Mozzarella gerieben (Fr Pizza)</label></div>
+          <div class="shop-item"><label>300g Gouda gerieben (Sa Burger)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>6 Cheddar-Scheiben (Sa Burger)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>80g Parmesan am Stück (Mi Pasta)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Frischkäse Kräuter (Mi Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Gouda &amp; Emmentaler in Scheiben (Mi + Fr Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Butter (2 Packungen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>10 Bio-Eier (Do + Sa)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Crème fraîche (Fr Flammkuchen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Remoulade (Do Fischstäbchen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>6 Veggie-Patties (Sa)</label></div>
+        </div>
+      </div>
+
+      <div class="shop-category">
+        <h3>🍞 Brot &amp; Backwaren</h3>
+        <div class="shop-items">
+          <div class="shop-item"><input type="checkbox"><label>12–15 Brötchen (Fr Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1–2 Laibe Brot (Mi + Do Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Packung Toastbrot (Do)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Pck. Pizzateig Kühlregal (Fr)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>6 Burger-Brötchen Brioche oder Sesam (Sa)</label></div>
+        </div>
+      </div>
+
+      <div class="shop-category">
+        <h3>🍚 Vorrat &amp; Trockenes</h3>
         <div class="shop-items">
           <div class="shop-item"><input type="checkbox"><label>500g Orzo/Risoni (Mo)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>250g Feta (Mo)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Dosen Kichererbsen (Di)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Dose Kokosmilch (Di)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>500g Farfalle/Penne (Mi)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Pck. Fischstäbchen (Do)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Pizzateig/Flammkuchenteig (Fr)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Veggie-Burger Patties & Buns (Sa)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>10-12 Bio-Eier (Do + Sa)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Joghurt & Milch (Vorrat)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Basmatireis (Di)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>500g Farfalle oder Penne (Mi)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Dosen Kichererbsen á 400g (Di)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Dose Kokosmilch 400ml (Di)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Dose passierte Tomaten 400g (Di + Fr)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 EL gelbe Currypaste mild (Di)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Glas Tomatensauce 400g (Fr Pizza)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1,2 kg Kartoffeln mehlkochend (Do)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g TK-Erbsen (Do + Mi)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Haferflocken / Müsli-Mix (Di + Do)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Mehl Type 405 (Sa Pancakes)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Päckchen Backpulver (Sa)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Ahornsirup (Sa Pancakes)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Honig (Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Marmelade (verschiedene Sorten)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Nüsse: Walnüsse, Mandeln (Di + Mi)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>50g Pinienkerne (Mo + Mi)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Dose Mais (Fr Pizza)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Oliven (Fr Pizza)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Essiggurken (Sa Burger)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Ketchup, Mayonnaise, Senf (Sa Burger-Sauce)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Olivenöl</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Gewürze: Salz, Pfeffer, Muskatnuss, Oregano, Kurkuma, Kreuzkümmel, Chili</label></div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- ===== ARCHIV TAB ===== -->
-  <div class="tab-content" id="tab-archive">
-    <p class="archive-intro">📦 Vorherige Pläne archiviert.</p>
-  </div>
+    </div>
+  </div><!-- tab-shopping -->
+
 </div>
 
 <footer class="footer">
-  Familie Heineccius · 29.06. - 04.07.2026 · Vegetarisch (Fisch ok)
+  Familie Heineccius · 29.06.–04.07.2026 · Vegetarisch (Fisch ok) · 🟣 Do/Fr Julia weg
 </footer>
 
 <script>
 function toggleAccordion(el) {
   el.parentElement.classList.toggle('open');
 }
+
 function switchTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   document.getElementById('btn-' + tab).classList.add('active');
   document.getElementById('tab-' + tab).classList.add('active');
 }
+
+// Highlight today
+const todayCard = document.getElementById('2026-06-29');
+if (todayCard) todayCard.classList.add('today');
+
+// Checkbox persistence
+document.querySelectorAll('.shop-item input[type="checkbox"]').forEach((cb, i) => {
+  const key = 'shop_2026-06-29_' + i;
+  const saved = localStorage.getItem(key);
+  if (saved === 'true') { cb.checked = true; cb.parentElement.classList.add('checked'); }
+  cb.addEventListener('change', () => {
+    localStorage.setItem(key, cb.checked);
+    cb.parentElement.classList.toggle('checked', cb.checked);
+  });
+});
 </script>
 
 </body>
