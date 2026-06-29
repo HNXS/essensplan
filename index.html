@@ -27,6 +27,7 @@
   .day-header.weekend { background: linear-gradient(135deg, #f6d365, #fda085); }
   .day-header.weekday { background: linear-gradient(135deg, #43e97b, #38f9d7); }
   .day-header.grill { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
+  .day-header.solo { background: linear-gradient(135deg, #b8aec8, #9a8eaa); }
   .day-header h2 { font-size: 1.3em; }
   .day-header .badge { background: rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 12px; font-size: 0.8em; }
   .meals { padding: 20px 24px; }
@@ -60,6 +61,7 @@
   .archive-card .day-header.guests { background: linear-gradient(135deg, #c3b8d6, #a09abf); }
   .archive-card .day-header.weekday { background: linear-gradient(135deg, #a8c8b8, #8aaa9a); }
   .archive-card .day-header.solo { background: linear-gradient(135deg, #b8aec8, #9a8eaa); }
+  .archive-card .day-header.grill { background: linear-gradient(135deg, #d6a8a8, #bf9a9a); }
   .archive-card .meals { padding: 14px 18px; }
   .archive-card .meal { border-color: #e0e0e0; }
   .archive-card .meal-info .meal-name { font-size: 0.98em; color: #555; }
@@ -95,11 +97,11 @@
 <div class="container">
   <header>
     <h1>🍽️ Familien-Essensplan</h1>
-    <p>Familie Heineccius · 20.–26. Juni 2026</p>
+    <p>Familie Heineccius · 27. Juni – 3. Juli 2026</p>
     <div class="legend">
       <span>🟡 Wochenende (6 Pers.)</span>
       <span>🟢 Werktag (6 Pers.)</span>
-      <span>🔥 Grill-Tag</span>
+      <span>🟣 Julia weg (5 Pers.)</span>
       <span>⭐ Heute</span>
     </div>
   </header>
@@ -113,31 +115,29 @@
   <!-- ===== ESENSPLAN TAB ===== -->
   <div class="tab-content active" id="tab-current">
 
-    <!-- SA 20.6. — HEUTE, Wochenende, 6 Pers. -->
-    <div class="day-card" id="2026-06-20">
-      <div class="day-header weekend">
-        <h2>🟡 Sa 20.6. · Samstag · ⭐ Heute</h2>
-        <span class="badge">🏇 Reiten 13:30 · Wochenende · 6 Pers.</span>
+    <!-- FR 27.6. — Werktag, Date Night 21:00, 6 Pers. -->
+    <div class="day-card" id="2026-06-27">
+      <div class="day-header weekday">
+        <h2>🟢 Fr 27.6. · Freitag · ⭐ Heute</h2>
+        <span class="badge">💑 Date Night 21:00 · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥐 Sommerliches Frühstücksbuffet</div>
-              <div class="meal-note">Brötchen, Aufschnitt, Obst, Joghurt — entspannter Wochenstart</div>
+              <div class="meal-name">🍞 Brötchen & Aufschnitt</div>
+              <div class="meal-note">Frische Brötchen vom Bäcker — Start in den Freitag</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>12–15 Brötchen (verschiedene, vom Bäcker)</li>
+              <li>12–15 Brötchen (verschiedene)</li>
               <li>Aufschnitt: Salami, Schinken, Käse</li>
               <li>Marmelade, Honig, Butter</li>
-              <li>2 Bananen, 2 Äpfel, 250g Beeren</li>
-              <li>500g Naturjoghurt</li>
-              <li>Müsli zum Streuen</li>
+              <li>Tomaten, Gurke</li>
               <li>Milch, Kaffee, Tee</li>
             </ul>
           </div></div>
@@ -146,46 +146,44 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍳 Schnelle Shakshuka mit Fladenbrot</div>
-              <div class="meal-note">Vegetarisch, schnell gemacht — perfekter Wochenstart</div>
+              <div class="meal-name">🥘 Gnocchi-Pfanne mit Tomate, Mozzarella & Basilikum</div>
+              <div class="meal-note">Sommerlich, italienisch, schnell — Date Night ab 21:00 🥂</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>2 Dosen passierte Tomaten (á 400g)</li>
-              <li>10–12 Eier</li>
-              <li>2 Zwiebeln, 4 Knoblauchzehen</li>
-              <li>2 rote Paprika</li>
-              <li>1 Chilischote (mild, optional)</li>
-              <li>2 EL Olivenöl</li>
-              <li>Kreuzkümmel, Paprikapulver (edelsüß), Oregano</li>
-              <li>200g Feta (zum Bestreuen)</li>
-              <li>1 Bund Koriander oder Petersilie</li>
-              <li>2 Fladenbrote</li>
+              <li>2 Pck. Gnocchi (á 500g, Kühlregal)</li>
+              <li>500g Kirschtomaten (halbiert)</li>
+              <li>3 Kugeln Mozzarella (in Stücken)</li>
+              <li>1 Glas passierte Tomaten (400g)</li>
+              <li>2 Knoblauchzehen</li>
+              <li>1 Bund Basilikum (frisch)</li>
+              <li>3 EL Olivenöl</li>
+              <li>50g Parmesan (gerieben)</li>
+              <li>1 TL Oregano</li>
+              <li>Salz, Pfeffer, 1 Prise Zucker</li>
             </ul>
             <h4>Zubereitung</h4>
             <ol>
-              <li>Zwiebeln und Knoblauch fein würfeln. Paprika in Streifen schneiden.</li>
-              <li>Olivenöl in großer Pfanne erhitzen, Zwiebeln glasig dünsten. Knoblauch und Paprika zugeben, 5 Min braten.</li>
-              <li>Passata angießen, mit Kreuzkümmel, Paprikapulver, Oregano, Salz würzen. 10 Min köcheln.</li>
-              <li>Mit einem Löffel 6–8 Vertiefungen in die Sauce drücken, je ein Ei hineinschlagen.</li>
-              <li>Deckel auflegen, 5–8 Min bei mittlerer Hitze, bis das Eiweiß gestockt ist.</li>
-              <li>Feta krümeln und darüberstreuen, mit Koriander garnieren.</li>
-              <li>Mit warmem Fladenbrot servieren.</li>
+              <li>Gnocchi in Salzwasser nach Packungsanweisung kochen, abgießen.</li>
+              <li>Knoblauch in Olivenöl andünsten, Kirschtomaten zugeben, 3 Min braten bis sie weich werden.</li>
+              <li>Passierte Tomaten angießen, mit Oregano, Salz, Pfeffer, Prise Zucker abschmecken. 5 Min köcheln.</li>
+              <li>Gnocchi untermischen, Mozzarella-Stücke unterheben bis sie leicht schmelzen.</li>
+              <li>Mit Basilikum und Parmesan servieren.</li>
             </ol>
-            <div class="tip">Shakshuka ist super flexibel — auch mit Zucchini oder Aubergine aus dem Ofen. Für die Kids: weniger Chili, mehr Feta!</div>
+            <div class="tip">Super schnell — 20 Min und fertig. Perfekt vor der Date Night! 🥂</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- SO 21.6. — GRILL-TAG, 6 Pers. -->
-    <div class="day-card" id="2026-06-21">
-      <div class="day-header grill">
-        <h2>🔥 So 21.6. · Sonntag · GRILL-TAG</h2>
-        <span class="badge">🔥 Grill-Abend · 6 Pers.</span>
+    <!-- SA 28.6. — Wochenende, 6 Pers. -->
+    <div class="day-card" id="2026-06-28">
+      <div class="day-header weekend">
+        <h2>🟡 Sa 28.6. · Samstag</h2>
+        <span class="badge">🌞 Wochenende · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
@@ -193,7 +191,7 @@
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
               <div class="meal-name">🥞 Pancakes mit Beeren und Ahornsirup</div>
-              <div class="meal-note">Sonntags-Brunch — entspannt vor dem Reiten</div>
+              <div class="meal-note">Sonntags-Brunch — entspanntes Wochenende</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
@@ -217,61 +215,122 @@
               <li>In Pfanne mit Butter kleine Pancakes ausbacken (je 2–3 Min pro Seite).</li>
               <li>Mit Beeren, Bananenscheiben und Ahornsirup servieren.</li>
             </ol>
-            <div class="tip">Teig kann man schon morgens anrühren und im Kühlschrank parken. Vor dem Reiten schonmal vorbereiten!</div>
           </div></div>
         </div>
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
-              <div class="meal-type">🔥 Abendessen · GRILL-ABEND</div>
-              <div class="meal-name">🍔 Selbstgemachte Burger (Veggie + Fleisch) & Grillgemüse</div>
-              <div class="meal-note">🔥 Burger vom Grill — Veggie-Patties (Bohnen/Champignon) + Rindfleisch für die, die wollen</div>
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🌮 Sommernachts-Fajitas mit gegrilltem Gemüse</div>
+              <div class="meal-note">Vegetarisch, bunt, Sommer-Vibes — jeder baut seine eigenen Fajitas</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten — Burger (6 Pers.)</h4>
+            <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li><strong>Veggie-Patties:</strong> 400g Kidneybohnen (Dose), 300g Champignons, 1 Zwiebel, 2 Knoblauchzehen, 100g Haferflocken, 2 Eier, 50g geriebener Käse, Kreuzkümmel, Paprikapulver, Salz, Pfeffer, Öl zum Braten/Grillen</li>
-              <li><strong>Fleisch-Patties:</strong> 400g Rinderhack (für 2–3 die Fleisch wollen)</li>
-              <li>12 Burger-Brötchen (Brioche oder klassisch)</li>
-              <li>Beläge: Tomatenscheiben, Gurkenscheiben, Salatblätter, Zwiebelringe</li>
-              <li>Saucen: Ketchup, BBQ-Sauce, Remoulade</li>
-              <li>200g Cheddar-Scheiben (für Cheeseburger)</li>
-            </ul>
-            <h4>Zutaten — Grillgemüse</h4>
-            <ul>
-              <li>2 Zucchini (in Scheiben)</li>
-              <li>2 Paprika (viertelt, entkernt)</li>
-              <li>2 Maiskolben (vorgekocht)</li>
+              <li>12 Tortilla-Wraps (Weizen, groß)</li>
+              <li>2 Zucchini (in Streifen)</li>
+              <li>2 Paprika (rot + gelb, in Streifen)</li>
               <li>1 Aubergine (in Scheiben)</li>
-              <li>Marinade: 4 EL Olivenöl, 2 Knoblauchzehen, 1 TL Rosmarin, 1 TL Thymian, Salz, Pfeffer</li>
-            </ul>
-            <h4>Zutaten — Schokobanane (Dessert vom Grill)</h4>
-            <ul>
-              <li>4 Bananen (mit Schale)</li>
-              <li>200g Zartbitter-Schokolade (in Stücken)</li>
-              <li>Optional: Marshmallows, gehackte Nüsse</li>
+              <li>1 rote Zwiebel (in Ringen)</li>
+              <li>400g schwarze Bohnen (Dose, abgetropft)</li>
+              <li>200g Mais (Dose, abgetropft)</li>
+              <li>300g geriebener Käse (Cheddar oder Gouda)</li>
+              <li><strong>Guacamole:</strong> 3 reife Avocados, 1 Limette, 1 Knoblauchzehe, 1 Tomate, Salz, Koriander</li>
+              <li><strong>Salsa:</strong> 1 Glas fertige Salsa (mild) oder selbstgemacht</li>
+              <li>saure Sahne oder Crème fraîche</li>
+              <li>4 EL Olivenöl, 2 TL Paprikapulver, 1 TL Kreuzkümmel, 1 TL Oregano, Salz, Pfeffer</li>
             </ul>
             <h4>Zubereitung</h4>
             <ol>
-              <li><strong>Veggie-Patties:</strong> Kidneybohnen abtropfen, grob zerdrücken. Champignons fein hacken. Zwiebel und Knoblauch andünsten. Alles mit Haferflocken, Ei, Käse und Gewürzen mischen. Patties formen, 30 Min kalt stellen. Auf dem Grill oder in der Pfanne 4–5 Min pro Seite braten.</li>
-              <li><strong>Fleisch-Patties:</strong> Hackfleisch mit Salz, Pfeffer formen. Auf dem Grill 4–5 Min pro Seite.</li>
-              <li><strong>Grillgemüse:</strong> Gemüse vorbereiten, mit Marinade einpinseln. Auf dem Grill 8–10 Min, wenden bis Röstaromen entstehen. Mais in 10–12 Min grillen, wenden.</li>
-              <li><strong>Burger bauen:</strong> Brötchen toasten, Pattie rein, Käse drauf (für Cheeseburger), Beläge und Saucen dazu.</li>
-              <li><strong>Schokobanane:</strong> Banane längs einschneiden (Schale bleibt dran). Schokoladenstücke in den Spalt stecken. Auf den Grill legen (Schale nach unten), 5–8 Min bis die Schokolade geschmolzen ist. Mit Nüssen bestreuen.</li>
+              <li>Gemüse in Streifen/Scheiben schneiden. Mit Olivenöl, Paprikapulver, Kreuzkümmel, Oregano, Salz, Pfeffer marinieren.</li>
+              <li>Gemüse in großer Pfanne oder auf dem Grill 8–10 Min scharf anbraten, bis Röstaromen entstehen.</li>
+              <li>Bohnen und Mais in einer zweiten Pfanne erwärmen.</li>
+              <li>Guacamole: Avocados zerdrücken, Limettensaft, gehackten Knoblauch, gewürfelte Tomate, Salz, Koriander unterrühren.</li>
+              <li>Tortillas kurz erwärmen. Jeder baut sich seine Fajitas: Gemüse, Bohnen-Mais, Käse, Guacamole, Salsa, saure Sahne.</li>
             </ol>
-            <div class="tip">🔥 Veggie-Patties am besten vormittags schon formen und kaltstellen — dann halten sie auf dem Grill besser zusammen. Grillgemüse kann auch drinnen in der Pfanne gemacht werden, falls das Wetter nicht mitspielt!</div>
+            <div class="tip">Fajitas sind das perfekte Sommeressen — bunt, frisch und jeder nimmt sich was er mag. Guacamole unbedingt frisch machen! 🥑</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- MO 22.6. — Werktag, Frida Tanzen 17:00, Nora Sport 16:30, Rollertag, 6 Pers. -->
-    <div class="day-card" id="2026-06-22">
+    <!-- SO 29.6. — Wochenende, Sport Frida 13:45, Nora Ohrenarzt, 6 Pers. -->
+    <div class="day-card" id="2026-06-29">
+      <div class="day-header weekend">
+        <h2>🟡 So 29.6. · Sonntag</h2>
+        <span class="badge">🏃 Sport Frida 13:45 · 👂 Nora Ohrenarzt · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥐 Sommerliches Frühstücksbuffet</div>
+              <div class="meal-note">Brötchen, Aufschnitt, Obst, Joghurt — entspannter Sonntag</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
+            <ul>
+              <li>12–15 Brötchen (verschiedene, vom Bäcker)</li>
+              <li>Aufschnitt: Salami, Schinken, Käse</li>
+              <li>Marmelade, Honig, Butter</li>
+              <li>2 Bananen, 2 Äpfel, 250g Beeren</li>
+              <li>500g Naturjoghurt</li>
+              <li>Müsli zum Streuen</li>
+              <li>Milch, Kaffee, Tee</li>
+            </ul>
+          </div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🍋 Griechische Orzo-Salat-Schüssel mit Feta & Grillgemüse</div>
+              <div class="meal-note">Sommerlich, warm oder kalt — perfekt für heiße Tage</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
+            <ul>
+              <li>400g Orzo (Risoni Nudeln)</li>
+              <li>2 Zucchini (in Würfeln)</li>
+              <li>2 Paprika (rot + gelb, in Würfeln)</li>
+              <li>1 Aubergine (in Würfeln)</li>
+              <li>1 rote Zwiebel (in Würfeln)</li>
+              <li>250g Kirschtomaten (halbiert)</li>
+              <li>200g Feta (in Würfeln)</li>
+              <li>1 Glas schwarze Oliven (entkernt)</li>
+              <li>1 Bund Petersilie (gehackt)</li>
+              <li>1 Zitrone (Saft + Schale)</li>
+              <li>4 EL Olivenöl</li>
+              <li>2 Knoblauchzehen (gepresst)</li>
+              <li>1 TL Oregano (getrocknet)</li>
+              <li>Salz, Pfeffer</li>
+            </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Orzo in Salzwasser kochen, abgießen, mit 1 EL Olivenöl mischen.</li>
+              <li>Ofen auf 220°C. Zucchini, Paprika, Aubergine, Zwiebel auf Blech mit 3 EL Olivenöl, Salz, Pfeffer, Oregano mischen. 20 Min backen bis Röstaromen.</li>
+              <li>Dressing: Zitronensaft, Knoblauch, restliches Olivenöl, Salz, Pfeffer.</li>
+              <li>Orzo mit Grillgemüse, Kirschtomaten, Oliven, Feta, Petersilie mischen. Dressing unterheben.</li>
+              <li>Warm oder kalt servieren.</li>
+            </ol>
+            <div class="tip">Geht auch super als Meal-Prep für Montag! Schmeckt kalt noch besser. 🥗</div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MO 30.6. — Werktag, Nora Schwimmen 14:45, Julia Fahrrad, 6 Pers. -->
+    <div class="day-card" id="2026-06-30">
       <div class="day-header weekday">
-        <h2>🟢 Mo 22.6. · Montag</h2>
-        <span class="badge">💃 Frida Tanzen 17:00 · 🤸 Nora Sport 16:30 · 🛴 Rollertag · 6 Pers.</span>
+        <h2>🟢 Mo 30.6. · Montag</h2>
+        <span class="badge">🏊 Nora Schwimmen 14:45 · 🚲 Julia Fahrrad · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
@@ -300,44 +359,49 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🫓 Quesadillas mit Kidneybohnen, Mais und Käse</div>
-              <div class="meal-note">Kinderfreundlich und schnell — perfekt vor dem Klavierunterricht</div>
+              <div class="meal-name">🍛 Gelbes Kichererbsen-Curry mit Kokosmilch & Reis</div>
+              <div class="meal-note">Sommerlich-würziges Comfort Food — schnell gemacht</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>12 Tortilla-Wraps (Weizen, groß)</li>
-              <li>400g Kidneybohnen (Dose, abgetropft)</li>
-              <li>1 Dose Mais (ca. 300g, abgetropft)</li>
-              <li>300g geriebener Käse (Cheddar oder Gouda)</li>
-              <li>1 rote Paprika (fein gewürfelt)</li>
-              <li>1 Zwiebel (fein gewürfelt)</li>
-              <li>1 Bund Koriander (gehackt, optional)</li>
-              <li>Salsa (Glas, mild)</li>
-              <li>Saurer Sahne oder Crème fraîche</li>
+              <li>2 Dosen Kichererbsen (á 400g, abgetropft)</li>
+              <li>1 Dose Kokosmilch (400ml)</li>
+              <li>2 EL gelbe Currypaste (mild)</li>
+              <li>1 Dose passierte Tomaten (400g)</li>
+              <li>300g Reis (Basmati)</li>
+              <li>1 Zucchini (in Würfeln)</li>
+              <li>1 Paprika (in Würfeln)</li>
+              <li>1 Zwiebel, 2 Knoblauchzehen, 1 Stück Ingwer (ca. 2cm)</li>
               <li>2 EL Olivenöl</li>
+              <li>1 TL Kurkuma, 1 TL Kreuzkümmel</li>
+              <li>200g Babyspinat</li>
+              <li>Salz, Pfeffer</li>
+              <li>Naan-Brot dazu (optional)</li>
             </ul>
             <h4>Zubereitung</h4>
             <ol>
-              <li>Kidneybohnen und Mais abtropfen. Paprika und Zwiebel fein würfeln.</li>
-              <li>In einer Schüssel Bohnen, Mais, Paprika, Zwiebel, etwas Käse und Koriander mischen.</li>
-              <li>Einen Wrap in eine Pfanne legen, Hälfte mit der Mischung belegen, Käse darüber, zweiten Wrap darauflegen (oder umklappen).</li>
-              <li>2–3 Min pro Seite bei mittlerer Hitze braten, bis der Käse geschmolzen und der Wrap knusprig ist.</li>
-              <li>In Stücke schneiden, mit Salsa und saurer Sahne servieren.</li>
+              <li>Reis nach Packungsanweisung kochen.</li>
+              <li>Zwiebel, Knoblauch, Ingwer fein hacken. In Olivenöl andünsten.</li>
+              <li>Currypaste, Kurkuma, Kreuzkümmel zugeben, 1 Min mitrösten.</li>
+              <li>Zucchini und Paprika zugeben, 3 Min mitbraten.</li>
+              <li>Kichererbsen, Kokosmilch, passierte Tomaten angießen. 15 Min köcheln.</li>
+              <li>Babyspinat unterheben, 2 Min zusammenfallen lassen. Mit Salz abschmecken.</li>
+              <li>Mit Reis (und Naan) servieren.</li>
             </ol>
-            <div class="tip">Quesadillas gehen ratz-fatz — 20 Min und fertig. Perfekt, wenn Frida um 17:15 zum Klavier muss! Kinder können beim Belegen helfen. 🛴</div>
+            <div class="tip">Curry schmeckt am nächsten Tag noch besser — Reste für Dienstag als Mittagessen! 🍛</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- DI 23.6. — Werktag, Tim betreut Moritz 12-14:30, Rollertag, 6 Pers. -->
-    <div class="day-card" id="2026-06-23">
+    <!-- DI 1.7. — Werktag, Klavier Frida 17:15, Pickleball Tim 19:30, 6 Pers. -->
+    <div class="day-card" id="2026-07-01">
       <div class="day-header weekday">
-        <h2>🟢 Di 23.6. · Dienstag</h2>
-        <span class="badge">👨‍👦 Tim betreut Moritz 12–14:30 · 🛴 Rollertag · 6 Pers.</span>
+        <h2>🟢 Di 1.7. · Dienstag</h2>
+        <span class="badge">🎹 Klavier Frida 17:15 · 🏓 Pickleball Tim 19:30 · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
@@ -365,44 +429,113 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🥦 Gemüseauflauf mit Kartoffeln und Brokkoli</div>
-              <div class="meal-note">Vegetarisch, macht satt — Brokkoli-Auflauf mit Käsekruste</div>
+              <div class="meal-name">🥗 Mediterrane Couscous-Schüssel mit geröstetem Gemüse & Hummus</div>
+              <div class="meal-note">Leicht, sommerlich, gesund — 25 Min und fertig</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>1,2 kg Kartoffeln (festkochend)</li>
-              <li>500g Brokkoli (frisch oder TK)</li>
-              <li>200ml Sahne</li>
-              <li>200ml Gemüsebrühe</li>
-              <li>250g geriebener Käse (Gouda + Parmesan)</li>
-              <li>1 Zwiebel, 2 Knoblauchzehen</li>
-              <li>2 EL Butter, 1 EL Mehl</li>
-              <li>Muskatnuss, Salz, Pfeffer</li>
-              <li>1 TL Senf (mittelscharf)</li>
-              <li>Kleine Tomaten für die Dekoration (optional)</li>
+              <li>400g Couscous (Instant)</li>
+              <li>1 Aubergine (in Würfeln)</li>
+              <li>2 Zucchini (in Würfeln)</li>
+              <li>2 Paprika (rot + gelb, in Würfeln)</li>
+              <li>250g Kirschtomaten (halbiert)</li>
+              <li>1 Zwiebel, 3 Knoblauchzehen</li>
+              <li>4 EL Olivenöl</li>
+              <li>1 TL Paprikapulver, 1 TL Oregano, Salz, Pfeffer</li>
+              <li>200g Feta (zerkrümelt)</li>
+              <li>1 Glas Hummus (fertig, ca. 200g)</li>
+              <li>1 Bund Minze oder Petersilie</li>
+              <li>1 Zitrone (Saft)</li>
+              <li>1 Dose Kichererbsen (400g, abgetropft — optional als Extra)</li>
             </ul>
             <h4>Zubereitung</h4>
             <ol>
-              <li>Kartoffeln schälen, in Scheiben schneiden, 10 Min vorkochen. Abgießen.</li>
-              <li>Brokkoli in Röschen teilen, 5 Min in Salzwasser blanchieren. Abgießen.</li>
-              <li>Zwiebel und Knoblauch hacken, in Butter andünsten. Mehl einrühren, Sahne und Brühe langsam zugeben. Aufkochen, 5 Min einköcheln. Mit Muskatnuss, Senf, Salz, Pfeffer abschmecken.</li>
-              <li>Auflaufform fetten: Kartoffelscheiben am Boden, Brokkoli darauf, Sauce darüber, Käse bestreuen.</li>
-              <li>30 Min bei 200°C backen, bis die Kruste goldbraun ist.</li>
+              <li>Couscous: In Schüssel geben, mit 500ml kochendem Salzwasser übergießen, 5 Min quellen lassen, mit Gabel auflockern.</li>
+              <li>Ofen auf 220°C. Aubergine, Zucchini, Paprika, Zwiebel, Knoblauch auf Blech mit Olivenöl, Paprikapulver, Oregano, Salz, Pfeffer mischen. 20 Min backen.</li>
+              <li>Kirschtomaten in den letzten 5 Min zugeben.</li>
+              <li>Couscous auf Schüsseln verteilen, Grillgemüse darauf, Feta darüber, Hummus als Topping.</li>
+              <li>Mit Zitronensaft und Minze verfeinern.</li>
             </ol>
-            <div class="tip">Auflauf lässt sich super vormittags vorbereiten und abends nur noch in den Ofen schieben. Reste schmecken aufgewärmt am nächsten Tag auch gut!</div>
+            <div class="tip">Bowl-Style — jeder nimmt sich was er mag. Grillgemüse schmeckt auch kalt super! 🌿</div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- MI 24.6. — Werktag, Klavier Frida 17:15, Pickleball Tim 19:30, 6 Pers. -->
-    <div class="day-card" id="2026-06-24">
-      <div class="day-header weekday">
-        <h2>🟢 Mi 24.6. · Mittwoch</h2>
-        <span class="badge">🎹 Klavier Frida 17:15 · 🏓 Pickleball Tim 19:30 · 6 Pers.</span>
+    <!-- MI 2.7. — Werktag, Julia weg beim Abendessen, Auto abgeben 8:00, Spielen Fynn+Frida, 5 Pers. -->
+    <div class="day-card" id="2026-07-02">
+      <div class="day-header solo">
+        <h2>🟣 Mi 2.7. · Mittwoch</h2>
+        <span class="badge">🚗 Auto abgeben 8:00 · 🧒 Spielen Fynn+Frida · Julia weg · 5 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🍳 Rührei mit Toast und Schnittlauch</div>
+              <div class="meal-note">Schnell und gut — Tim hat einen vollen Tag vor sich</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (5 Pers.)</h4>
+            <ul>
+              <li>10 Eier</li>
+              <li>1 Packung Toastbrot (oder frisches Brot)</li>
+              <li>Butter</li>
+              <li>1 Bund Schnittlauch</li>
+              <li>3 EL Milch (fürs Rührei)</li>
+              <li>Salz, Pfeffer</li>
+              <li>Tomaten, Gurke als Beilage</li>
+            </ul>
+          </div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🍝 Kalte Nudelsalat-Schüssel mit Pesto, Mozzarella & Tomaten</div>
+              <div class="meal-note">Sommerlich, schnell, kalt — Julia ist eh weg, leichtes Abendessen</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (5 Pers.)</h4>
+            <ul>
+              <li>400g Penne oder Fusilli</li>
+              <li>1 Glas Pesto (grün, ca. 190g)</li>
+              <li>250g Kirschtomaten (halbiert)</li>
+              <li>2 Kugeln Mozzarella (in Stücken)</li>
+              <li>1 Gurke (in Würfeln)</li>
+              <li>1 Dose Mais (300g, abgetropft)</li>
+              <li>100g geriebener Parmesan</li>
+              <li>1 Bund Basilikum</li>
+              <li>3 EL Olivenöl</li>
+              <li>2 EL Balsamico-Essig</li>
+              <li>Salz, Pfeffer</li>
+            </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Nudeln kochen, abgießen, mit Olivenöl mischen, abkühlen lassen.</li>
+              <li>Kirschtomaten halbieren, Mozzarella in Stücken, Gurke würfeln, Mais abtropfen.</li>
+              <li>Pesto mit Balsamico glattrühren. Nudeln mit Gemüse, Mozzarella, Pesto mischen.</li>
+              <li>Mit Parmesan und Basilikum servieren. Schmeckt kalt am besten!</li>
+            </ol>
+            <div class="tip">Perfekt für heiße Tage — kalt, erfrischend, kinderfreundlich. Schon morgens vorbereiten! 🍅</div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DO 3.7. — Werktag, Julia weg beim Abendessen, Date Night 21:00, 5 Pers. -->
+    <div class="day-card" id="2026-07-03">
+      <div class="day-header solo">
+        <h2>🟣 Do 3.7. · Donnerstag</h2>
+        <span class="badge">💑 Date Night 21:00 · Julia weg · 5 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
@@ -415,10 +548,10 @@
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (6 Pers.)</h4>
+            <h4>Zutaten (5 Pers.)</h4>
             <ul>
-              <li>400g Haferflocken (zart)</li>
-              <li>600ml Milch + 200ml Wasser</li>
+              <li>350g Haferflocken (zart)</li>
+              <li>500ml Milch + 200ml Wasser</li>
               <li>3 Äpfel (in Würfeln)</li>
               <li>2 TL Zimt</li>
               <li>2 EL Honig oder Ahornsirup</li>
@@ -438,81 +571,16 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍝 Pasta Pesto mit Kirschtomaten und Mozzarella</div>
-              <div class="meal-note">Schnell, alltagstauglich — 20 Min und fertig</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (6 Pers.)</h4>
-            <ul>
-              <li>500g Spaghetti oder Penne</li>
-              <li>1 Glas Pesto (grün, ca. 190g)</li>
-              <li>250g Kirschtomaten (halbiert)</li>
-              <li>2 Kugeln Mozzarella (in Stücken)</li>
-              <li>1 Knoblauchzehe (fein gehackt)</li>
-              <li>2 EL Olivenöl</li>
-              <li>50g geriebener Parmesan</li>
-              <li>Frisches Basilikum (optional)</li>
-              <li>Salz, Pfeffer</li>
-            </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Nudeln in reichlich Salzwasser kochen, abgießen (etwas Nudelwasser aufheben).</li>
-              <li>Kirschtomaten halbieren. Knoblauch in Olivenöl kurz andünsten, Tomaten 2 Min mitbraten.</li>
-              <li>Pesto unter die Nudeln mischen, etwas Nudelwasser zugeben für eine cremige Konsistenz.</li>
-              <li>Tomaten und Mozzarella-Stücke unterheben.</li>
-              <li>Mit Parmesan und Basilikum servieren.</li>
-            </ol>
-            <div class="tip">Pasta Pesto ist der ultimative Retter für stressige Tage — fast keine Vorbereitung nötig. Mozzarella in Stücken statt gerieben schmilzt schön cremig!</div>
-          </div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DO 25.6. — Werktag, Tim betreut Moritz 12-14:30, 6 Pers. -->
-    <div class="day-card" id="2026-06-25">
-      <div class="day-header weekday">
-        <h2>🟢 Do 25.6. · Donnerstag</h2>
-        <span class="badge">👨‍👦 Tim betreut Moritz 12–14:30 · 6 Pers.</span>
-      </div>
-      <div class="meals">
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🍳 Rührei mit Toast und Schnittlauch</div>
-              <div class="meal-note">Schnell und gut — Tim hat einen vollen Tag vor sich</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (6 Pers.)</h4>
-            <ul>
-              <li>10–12 Eier</li>
-              <li>1 Packung Toastbrot (oder frisches Brot)</li>
-              <li>Butter</li>
-              <li>1 Bund Schnittlauch</li>
-              <li>3 EL Milch (fürs Rührei)</li>
-              <li>Salz, Pfeffer</li>
-              <li>Tomaten, Gurke als Beilage</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Abendessen</div>
               <div class="meal-name">🐟 Fischstäbchen mit Kartoffelpüree und Erbsen</div>
-              <div class="meal-note">Kinderliebling — schnell gemacht, Tim muss zum Pickleball 🏓</div>
+              <div class="meal-note">Kinderliebling — schnell gemacht, Date Night ab 21:00 🥂</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (6 Pers.)</h4>
+            <h4>Zutaten (5 Pers.)</h4>
             <ul>
               <li>2 Pck. Fischstäbchen (Ofen-Qualität, ca. 20 Stk.)</li>
-              <li>1,5 kg Kartoffeln (mehlkochend)</li>
+              <li>1,2 kg Kartoffeln (mehlkochend)</li>
               <li>200ml Milch</li>
               <li>50g Butter</li>
               <li>Muskatnuss, Salz, Pfeffer</li>
@@ -527,69 +595,7 @@
               <li>Erbsen in Salzwasser 5 Min kochen.</li>
               <li>Mit Zitrone und Remoulade servieren.</li>
             </ol>
-            <div class="tip">Kartoffelpüree lässt sich super vormittags vorbereiten! Fischstäbchen gehen schnell — Tim ist rechtzeitig beim Pickleball. 🏓</div>
-          </div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FR 26.6. — Werktag, Date Night 21:00, Tim Moritz 12-14:30, 6 Pers. -->
-    <div class="day-card" id="2026-06-26">
-      <div class="day-header weekday">
-        <h2>🟢 Fr 26.6. · Freitag</h2>
-        <span class="badge">👨‍👦 Tim betreut Moritz 12–14:30 · 💑 Date Night 21:00 · 6 Pers.</span>
-      </div>
-      <div class="meals">
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🍞 Brötchen & Aufschnitt</div>
-              <div class="meal-note">Frische Brötchen vom Bäcker — Start in den Freitag</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (6 Pers.)</h4>
-            <ul>
-              <li>12–15 Brötchen (verschiedene)</li>
-              <li>Aufschnitt: Salami, Schinken, Käse</li>
-              <li>Marmelade, Honig, Butter</li>
-              <li>Tomaten, Gurke</li>
-              <li>Milch, Kaffee, Tee</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🐟 Lachsfilet mit Dillsoße, Reis und Brokkoli</div>
-              <div class="meal-note">Fischtag — Date Night ab 21:00 🥂</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (6 Pers.)</h4>
-            <ul>
-              <li>6 Lachsfilets (á ca. 150g, frisch oder TK)</li>
-              <li>400g Reis (Basmati)</li>
-              <li>500g Brokkoli (frisch oder TK)</li>
-              <li>200ml Sahne</li>
-              <li>1 Zitrone</li>
-              <li>1 Bund Dill (frisch)</li>
-              <li>2 EL Butter, 1 EL Mehl</li>
-              <li>Salz, Pfeffer, etwas Zucker</li>
-            </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Reis nach Packungsanweisung kochen.</li>
-              <li>Brokkoli in Röschen teilen, 6 Min dünsten oder in Salzwasser blanchieren.</li>
-              <li>Lachs: Ofen bei 180°C. Filets auf Blech, mit Zitronensaft, Salz, Pfeffer würzen. 15–18 Min im Ofen.</li>
-              <li>Dillsoße: Butter schmelzen, Mehl einrühren. Sahne langsam zugeben, aufkochen. Gehackten Dill und Zitronenschale einrühren.</li>
-              <li>Lachs auf Reis anrichten, Brokkoli dazu, Soße darüber.</li>
-            </ol>
-            <div class="tip">Lachs und Dillsoße lassen sich gut vorbereiten — Reis kochen, Brokkoli blanchieren, Soße anrühren. Dann abends nur noch den Lachs in den Ofen schieben. Perfekt, wenn man um 21:00 zum Date Night will! 🥂</div>
+            <div class="tip">Kartoffelpüree lässt sich super vormittags vorbereiten! Fischstäbchen gehen schnell — Tim ist rechtzeitig zur Date Night. 🥂</div>
           </div></div>
         </div>
       </div>
@@ -600,112 +606,107 @@
   <!-- ===== EINKAUFSLISTE TAB ===== -->
   <div class="tab-content" id="tab-shopping">
     <div class="shopping-section">
-      <h2>🛒 Einkaufsliste · 20.–26. Juni 2026</h2>
+      <h2>🛒 Einkaufsliste · 27. Juni – 3. Juli 2026</h2>
 
       <div class="shop-category">
         <h3>🥬 Gemüse & Obst</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>2 Dosen passierte Tomaten (á 400g, Sa Shakshuka)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 rote Paprika (Sa Shakshuka)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Zucchini (So Grill)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Paprika bunt (So Grill)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Maiskolben (So Grill)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Aubergine (So Grill)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>300g Champignons (So Veggie-Patties)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 rote Paprika (Mo Quesadillas)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Zwiebel (Mo Quesadillas)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Zwiebel (Di Auflauf)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Knoblauchzehen (Di Auflauf)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>500g Brokkoli (Di Auflauf)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1,2 kg Kartoffeln festkochend (Di Auflauf)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>250g Kirschtomaten (Mi Pasta)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Knoblauchzehe (Mi Pasta)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1,5 kg Kartoffeln mehlkochend (Do Püree)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>500g Brokkoli (Fr Lachs)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Zitronen (Fr Lachs)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Bund Dill (Fr Lachs)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Bund Schnittlauch (Do Rührei)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Bund Koriander oder Petersilie (Sa Shakshuka)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Gurke (Di Brotzeit + Do Beilage)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Knoblauch (ganze Knolle)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>5–6 Zwiebeln (gesamt)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>3–4 Tomaten (Frühstück)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>4 Bananen (Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>500g Kirschtomaten (Fr Gnocchi + Di Couscous + Mi Nudelsalat)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Kugeln Mozzarella (Fr Gnocchi + Mi Nudelsalat)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Zucchini (Sa Fajitas + Di Couscous)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>4 Paprika bunt (Sa Fajitas + Di Couscous)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Auberginen (Sa Fajitas + Di Couscous)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 rote Zwiebel (Sa Fajitas)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Zwiebel (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Zwiebel (Di Couscous)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Glas passierte Tomaten 400g (Fr Gnocchi + Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Zucchini (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Paprika (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>200g Babyspinat (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Gurke (Di Couscous + Mi Nudelsalat + Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Stück Ingwer (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Bund Basilikum (Fr Gnocchi + Mi Nudelsalat)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Bund Petersilie (So Orzo)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Bund Minze (Di Couscous)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Bund Schnittlauch (Mi Rührei)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Knoblauch (ganze Knollen)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 Zitronen (So Orzo + Di Couscous + Do Fisch)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Limette (Sa Guacamole)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3 reife Avocados (Sa Guacamole)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Glas Oliven schwarz (So Orzo)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Dose Mais 300g (Sa Fajitas + Mi Nudelsalat)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>4 Bananen (Frühstück + Pancakes)</label></div>
           <div class="shop-item"><input type="checkbox"><label>4 Äpfel (Frühstück + Porridge)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>500g Beeren frisch oder TK (Frühstück + Pancakes)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Chilischote mild (Sa Shakshuka, optional)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>300g Beeren frisch oder TK (Frühstück + Pancakes)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>3–4 Tomaten (Frühstück)</label></div>
         </div>
       </div>
 
       <div class="shop-category">
-        <h3>🐟 Fleisch & Fisch</h3>
+        <h3>🐟 Fisch</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>400g Rinderhack (So Burger, für 2–3 Pers.)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>6 Lachsfilets á 150g (Fr-Abend)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Pck. Fischstäbchen Ofen-Qualität (Do-Abend, ca. 20 Stk.)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Pck. Fischstäbchen Ofen-Qualität ca. 20 Stk. (Do-Abend)</label></div>
         </div>
       </div>
 
       <div class="shop-category">
         <h3>🧀 Milchprodukte & Kühlregal</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>1 kg Naturjoghurt (Frühstück Mo + Sa)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>500ml Sahne (Di Auflauf + Fr Dillsoße)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 kg Naturjoghurt (Frühstück Mo + So)</label></div>
           <div class="shop-item"><input type="checkbox"><label>600ml Milch (Frühstück + Porridge + Püree)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>200g Feta (Sa Shakshuka)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>300g geriebener Käse Cheddar/Gouda (Mo Quesadillas)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>250g geriebener Käse Gouda+Parmesan (Di Auflauf)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>200g Cheddar-Scheiben (So Cheeseburger)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Kugeln Mozzarella (Mi Pasta)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>50g Parmesan gerieben (Mi Pasta)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>200g Feta (So Orzo)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>200g Feta (Sa Fajitas)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>300g geriebener Käse Cheddar/Gouda (Sa Fajitas)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>100g Parmesan gerieben (Fr Gnocchi + Mi Nudelsalat)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Käse (Gouda, Emmentaler — Frühstück)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Aufschnitt (Salami, Schinken — Frühstück)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Butter (2 Packungen)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>10–12 Eier (Sa Shakshuka + Do Rührei)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Eier (So Veggie-Patties)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Crème fraîche / saure Sahne (Mo Quesadillas)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Salsa (Glas, mild — Mo Quesadillas)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Glas Pesto grün (Mi Pasta)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>12 Burger-Brötchen Brioche (So Grill)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>12 Tortilla-Wraps groß (Mo Quesadillas)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>2 Fladenbrote (Sa Shakshuka)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>200g Zartbitter-Schokolade (So Schokobanane)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>10 Eier (Mi Rührei + Sa Pancakes)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>saure Sahne / Crème fraîche (Sa Fajitas)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Glas Hummus 200g (Di Couscous)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Glas Salsa mild (Sa Fajitas)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Glas Pesto grün (Mi Nudelsalat)</label></div>
         </div>
       </div>
 
       <div class="shop-category">
         <h3>🍞 Brot & Gebäck</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>12–15 Brötchen versch. (Sa Frühstück)</label></div>
           <div class="shop-item"><input type="checkbox"><label>12–15 Brötchen versch. (Fr Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>12–15 Brötchen versch. (So Frühstück)</label></div>
           <div class="shop-item"><input type="checkbox"><label>1–2 Laibe frisches Brot (Di Brotzeit)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Packung Toastbrot (Do Rührei)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Packung Toastbrot (Mi Rührei)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>24 Tortilla-Wraps groß (Sa Fajitas)</label></div>
         </div>
       </div>
 
       <div class="shop-category">
         <h3>🍚 Vorrat & Trockenes</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>400g Kidneybohnen Dose (So Veggie-Patties + Mo Quesadillas)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Dose Mais ca. 300g (Mo Quesadillas)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>400g Reis Basmati (Fr Lachs)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>500g Spaghetti oder Penne (Mi Pasta)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>400g Haferflocken zart (Mo Müsli + Mi Porridge)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>100g Haferflocken (So Veggie-Patties)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Pck. Gnocchi á 500g (Fr-Abend)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Orzo/Risoni (So-Abend)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Couscous Instant (Di-Abend)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Penne oder Fusilli (Mi-Abend)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>300g Reis Basmati (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Dosen Kichererbsen á 400g (Mo Curry + Di optional)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Dose Kokosmilch 400ml (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Dose schwarze Bohnen 400g (Sa Fajitas)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 EL gelbe Currypaste mild (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Haferflocken zart (Mo Müsli + Do Porridge)</label></div>
           <div class="shop-item"><input type="checkbox"><label>500g Müsli-Mischung (Frühstück)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>400g Mehl Type 405 (So Pancakes)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Päckchen Backpulver (So Pancakes)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>200ml Gemüsebrühe (Di Auflauf)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>400g Mehl Type 405 (Sa Pancakes)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Päckchen Backpulver (Sa Pancakes)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1,2 kg Kartoffeln mehlkochend (Do Püree)</label></div>
           <div class="shop-item"><input type="checkbox"><label>400g Erbsen TK (Do Beilage)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Ahornsirup (So Pancakes + Frühstück)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Naan-Brot optional (Mo Curry)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Ahornsirup (Sa Pancakes + Frühstück)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Honig (Frühstück + Porridge)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Marmelade (verschiedene Sorten)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Nüsse: Walnüsse, Mandeln (Frühstück + Porridge)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Olivenöl</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Gewürze: Salz, Pfeffer, Muskatnuss, Paprikapulver, Kreuzkümmel, Oregano, Rosmarin, Thymian, Zimt, Senf mittelscharf</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Ketchup, BBQ-Sauce, Remoulade (So Burger + Do Fischstäbchen)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Marshmallows optional (So Schokobanane)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>Frisches Basilikum optional (Mi Pasta)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Balsamico-Essig (Mi Nudelsalat)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Gewürze: Salz, Pfeffer, Muskatnuss, Paprikapulver, Kreuzkümmel, Kurkuma, Oregano, Zimt, Senf mittelscharf</label></div>
+          <div class="shop-item"><input type="checkbox"><label>Ketchup, Remoulade (Do Fischstäbchen)</label></div>
         </div>
       </div>
 
@@ -714,231 +715,28 @@
 
   <!-- ===== ARCHIV TAB ===== -->
   <div class="tab-content" id="tab-archive">
-    <p class="archive-intro">📦 Rezepte aus der Vorwoche (6.–13. Juni 2026) — aufsteigend sortiert</p>
+    <p class="archive-intro">📦 Rezepte aus der Vorwoche (20.–26. Juni 2026) — aufsteigend sortiert</p>
 
-    <!-- SA 6.6. -->
+    <!-- SA 20.6. -->
     <div class="archive-card">
       <div class="day-header weekend">
-        <h2>Sa 6.6. · Samstag</h2>
-        <span class="badge">🎪 Museumsmeilenfest · 8 Pers.</span>
+        <h2>Sa 20.6. · Samstag</h2>
+        <span class="badge">🏇 Reiten 13:30 · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🍞 Brötchen & Aufschnitt</div>
-              <div class="meal-note">Frische Brötchen vom Bäcker vor dem Fest</div>
+              <div class="meal-name">🥐 Sommerliches Frühstücksbuffet</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (8 Pers.)</h4>
+            <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>16–20 Brötchen (verschiedene)</li>
-              <li>Aufschnitt: Salami, Schinken, Käse</li>
-              <li>Marmelade, Honig, Butter</li>
-              <li>Milch, Kaffee, Tee</li>
-              <li>Tomaten, Gurke</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍝 Schnelle Pasta mit Pesto</div>
-              <div class="meal-note">Einfach und lecker nach dem Fest</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (8 Pers.)</h4>
-            <ul>
-              <li>800g Spaghetti oder Penne</li>
-              <li>1 Glas Pesto (grün oder rot)</li>
-              <li>2 Dosen passierte Tomaten</li>
-              <li>1 Pck. Parmesan gerieben</li>
-              <li>2 Zwiebeln, 3 Knoblauchzehen</li>
-              <li>Olivenöl, Oregano</li>
-              <li>1 Baguette, Salat</li>
-            </ul>
-          </div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SO 7.6. -->
-    <div class="archive-card">
-      <div class="day-header guests">
-        <h2>So 7.6. · Sonntag</h2>
-        <span class="badge">🏇 Reiten · 8 Pers.</span>
-      </div>
-      <div class="meals">
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥞 Pancakes mit Ahornsirup & frischem Obst</div>
-              <div class="meal-note">Großer Sonntags-Brunch für 8 Personen</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (8 Pers.)</h4>
-            <ul>
-              <li>500g Mehl (Type 405)</li>
-              <li>5 Eier</li>
-              <li>600ml Milch</li>
-              <li>2 Päckchen Backpulver</li>
-              <li>1 Prise Salz, 3 EL Zucker</li>
-              <li>Butter zum Ausbacken</li>
-              <li>Ahornsirup, 400g frische/TK-Beeren</li>
-              <li>Bananen, Apfelmus als Alternativen</li>
-              <li>Zusätzlich: Brötchen, Aufschnitt, Käse</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍝 Vegetarische Lasagne</div>
-              <div class="meal-note">Klassiker für viele Leute — zwei Formen, dazu Salat</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (8 Pers.)</h4>
-            <ul>
-              <li>2 Pck. Lasagneplatten (je 500g)</li>
-              <li>800g Spinat (tief, aufgetaut)</li>
-              <li>600g Ricotta</li>
-              <li>800ml Bechamelsauce (Butter, Mehl, Milch)</li>
-              <li>2 Dosen passierte Tomaten (á 400g)</li>
-              <li>2 Zwiebeln, 3 Knoblauchzehen</li>
-              <li>300g geriebener Käse (Mozzarella + Parmesan)</li>
-              <li>Muskatnuss, Salz, Pfeffer, Oregano</li>
-              <li>1 großes Baguette oder Ciabatta</li>
-              <li>Salat: gemischter Salat, Tomaten, Gurke, Essig/Öl</li>
-            </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Zwiebeln und Knoblauch hacken, in Olivenöl andünsten. Passata zugeben, 15 Min köcheln. Mit Oregano, Salz, Pfeffer abschmecken.</li>
-              <li>Spinat ausdrücken, mit Ricotta, Muskatnuss, Salz mischen.</li>
-              <li>Bechamel: Butter schmelzen, Mehl einrühren, Milch langsam zugeben, aufkochen bis cremig.</li>
-              <li>Zwei Auflaufformen: Boden Tomatensauce → Lasagneplatten → Spinat-Ricotta → Bechamel → Käse. Wiederholen, oben mit Käse abschließen.</li>
-              <li>40 Min bei 200°C backen, 10 Min ruhen lassen.</li>
-            </ol>
-          </div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MO 8.6. -->
-    <div class="archive-card">
-      <div class="day-header guests">
-        <h2>Mo 8.6. · Montag</h2>
-        <span class="badge">🏛️ JHV Taubenschlag · 8 Pers.</span>
-      </div>
-      <div class="meals">
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🍞 Vollkornbrot & Aufschnitt</div>
-              <div class="meal-note">Einfaches Alltagsfrühstück — schnell vor der Arbeit</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (8 Pers.)</h4>
-            <ul>
-              <li>2 Laibe Vollkornbrot (vom Bäcker)</li>
-              <li>Aufschnitt: Schinken, Käse</li>
-              <li>Butter, Marmelade</li>
-              <li>Gurke, Tomaten</li>
-              <li>Milch, Kaffee, Tee</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Mittagessen</div>
-              <div class="meal-name">♻️ Lasagne-Reste vom Vortag</div>
-              <div class="meal-note">Aufgewärmt schmeckt sie noch besser!</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Dazu</h4>
-            <ul>
-              <li>Frischer grüner Salat</li>
-              <li>Baguette</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍝 Cremige Pilz-Farfalle mit Parmesan</div>
-              <div class="meal-note">Familienfreundlich und einfach — Julia-approved 😄</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (8 Pers.)</h4>
-            <ul>
-              <li>800g Farfalle (Nudeln)</li>
-              <li>600ml Sahne + 200ml Milch</li>
-              <li>600g Champignons (braune)</li>
-              <li>2 Zwiebeln, 3 Knoblauchzehen</li>
-              <li>150g geriebener Parmesan</li>
-              <li>2 EL Butter, 2 EL Olivenöl</li>
-              <li>Thymian, Salz, Pfeffer, Muskatnuss</li>
-              <li>1 Baguette oder Ciabatta</li>
-              <li>Salat als Beilage</li>
-            </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Nudeln in Salzwasser kochen, abgießen (etwas Nudelwasser aufheben).</li>
-              <li>Zwiebeln und Knoblauch fein würfeln, in Butter und Olivenöl andünsten.</li>
-              <li>Champignons dazugeben, 5–7 Min braten bis sie Farbe haben. Sahne angießen, aufkochen, 5 Min einköcheln. Mit Thymian, Muskatnuss würzen.</li>
-              <li>Parmesan unterrühren, Nudeln dazu, alles mischen. Bei Bedarf etwas Nudelwasser zugeben.</li>
-              <li>Mit Baguette und Salat servieren.</li>
-            </ol>
-          </div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DI 9.6. -->
-    <div class="archive-card">
-      <div class="day-header guests">
-        <h2>Di 9.6. · Dienstag</h2>
-        <span class="badge">🏊 Nora Schwimmen · 8 Pers.</span>
-      </div>
-      <div class="meals">
-        <div class="meal">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥣 Müsli-Joghurt-Buffet</div>
-              <div class="meal-note">Haferflocken, Joghurt, frisches Obst, Nüsse — jeder bedient sich selbst</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (8 Pers.)</h4>
-            <ul>
-              <li>1 kg Naturjoghurt (3,5%)</li>
-              <li>500g Haferflocken (zart + kernig)</li>
-              <li>1 Beutel Müsli-Mischung</li>
-              <li>2 Bananen, 2 Äpfel, 400g Beeren</li>
-              <li>Nüsse (Walnüsse, Mandeln)</li>
-              <li>Honig, Ahornsirup</li>
+              <li>12–15 Brötchen, Aufschnitt, Marmelade, Honig, Butter</li>
+              <li>2 Bananen, 2 Äpfel, 250g Beeren, 500g Naturjoghurt, Müsli</li>
               <li>Milch, Kaffee, Tee</li>
             </ul>
           </div></div>
@@ -947,45 +745,114 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍛 Kichererbsen-Curry mit Reis</div>
-              <div class="meal-note">Vegetarian comfort food, skaliert gut auf 8 Personen</div>
+              <div class="meal-name">🍳 Schnelle Shakshuka mit Fladenbrot</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (8 Pers.)</h4>
+            <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>3 Dosen Kichererbsen (á 400g, abgetropft)</li>
-              <li>2 Dosen Kokosmilch (á 400ml)</li>
-              <li>3–4 TL Currypaste (gelb oder mild rot)</li>
-              <li>500g Reis (Basmati)</li>
-              <li>2 Zwiebeln, 3 Knoblauchzehen, 1 Stück Ingwer</li>
-              <li>1 große Zucchini, 1 Paprika</li>
-              <li>200g Babyspinat</li>
-              <li>2 EL Olivenöl</li>
-              <li>Kreuzkümmel, Kurkuma, Salz, Pfeffer</li>
-              <li>Naan-Brot oder Fladenbrot dazu</li>
+              <li>2 Dosen passierte Tomaten, 10–12 Eier, 2 Zwiebeln, 4 Knoblauchzehen</li>
+              <li>2 rote Paprika, 1 Chilischote, 200g Feta, 2 Fladenbrote</li>
+              <li>Kreuzkümmel, Paprikapulver, Oregano, Koriander</li>
             </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Reis nach Packungsanweisung kochen.</li>
-              <li>Zwiebeln, Knoblauch, Ingwer fein hacken. Öl erhitzen, Zwiebel glasig dünsten.</li>
-              <li>Currypaste, Kreuzkümmel, Kurkuma zugeben, 1 Min mitrösten.</li>
-              <li>Zucchini und Paprika in Würfel, 3 Min mitbraten.</li>
-              <li>Kichererbsen und Kokosmilch angießen. 20 Min bei mittlerer Hitze köcheln.</li>
-              <li>Babyspinat unterheben, 2 Min zusammenfallen lassen.</li>
-              <li>Mit Reis und Naan-Brot servieren.</li>
-            </ol>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- MI 10.6. -->
+    <!-- SO 21.6. -->
+    <div class="archive-card">
+      <div class="day-header grill">
+        <h2>So 21.6. · Sonntag</h2>
+        <span class="badge">🔥 Grill-Tag · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥞 Pancakes mit Beeren und Ahornsirup</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
+            <ul>
+              <li>400g Mehl, 4 Eier, 500ml Milch, 1 Päckchen Backpulver</li>
+              <li>Butter, Ahornsirup, 300g Beeren, 2 Bananen</li>
+            </ul>
+          </div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🔥 Abendessen</div>
+              <div class="meal-name">🍔 Selbstgemachte Burger (Veggie + Fleisch) & Grillgemüse</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
+            <ul>
+              <li>Veggie-Patties: 400g Kidneybohnen, 300g Champignons, Haferflocken, Eier, Käse</li>
+              <li>Fleisch-Patties: 400g Rinderhack</li>
+              <li>12 Burger-Brötchen, Cheddar, Beläge, Saucen</li>
+              <li>Grillgemüse: Zucchini, Paprika, Mais, Aubergine</li>
+              <li>Dessert: Schokobanane vom Grill</li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MO 22.6. -->
     <div class="archive-card">
       <div class="day-header weekday">
-        <h2>Mi 10.6. · Mittwoch</h2>
-        <span class="badge">🎹 Klavier Frida · 6 Pers.</span>
+        <h2>Mo 22.6. · Montag</h2>
+        <span class="badge">💃 Frida Tanzen · 🤸 Nora Sport · 🛴 Rollertag · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🌅 Frühstück</div>
+              <div class="meal-name">🥣 Müsli & Joghurt-Buffet</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
+            <ul>
+              <li>750g Naturjoghurt, 500g Haferflocken/Müsli</li>
+              <li>2 Bananen, 2 Äpfel, 250g Beeren, Nüsse, Honig</li>
+            </ul>
+          </div></div>
+        </div>
+        <div class="meal">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">🫓 Quesadillas mit Kidneybohnen, Mais und Käse</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
+            <ul>
+              <li>12 Tortilla-Wraps, 400g Kidneybohnen, 1 Dose Mais</li>
+              <li>300g Käse, 1 Paprika, 1 Zwiebel, Salsa, saure Sahne</li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DI 23.6. -->
+    <div class="archive-card">
+      <div class="day-header weekday">
+        <h2>Di 23.6. · Dienstag</h2>
+        <span class="badge">👨‍👦 Tim betreut Moritz · 🛴 Rollertag · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
@@ -993,18 +860,14 @@
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
               <div class="meal-name">🍞 Brotzeit</div>
-              <div class="meal-note">Frisches Brot, Käse, Gurke, Tomate — Alltagsfrühstück</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>2 Laibe frisches Brot (gemischt)</li>
-              <li>Käse (Gouda, Emmentaler), Aufschnitt</li>
-              <li>Butter, Marmelade</li>
-              <li>Gurke, Tomaten</li>
-              <li>Milch, Kaffee, Tee</li>
+              <li>1–2 Laibe Brot, Käse, Aufschnitt, Butter, Marmelade</li>
+              <li>1 Gurke, 3–4 Tomaten</li>
             </ul>
           </div></div>
         </div>
@@ -1012,61 +875,41 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🥟 Tortellini-Auflauf mit Gemüse & Käse</div>
-              <div class="meal-note">Kinderfreundlich, aufwandsarm — perfekt für den vollen Tag</div>
+              <div class="meal-name">🥦 Gemüseauflauf mit Kartoffeln und Brokkoli</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>3 Pck. Tortellini (Käse oder Gemüse, kühl)</li>
-              <li>1 Zucchini, 1 Paprika, 1 Dose Tomaten (400g)</li>
-              <li>200g Sahne</li>
-              <li>250g geriebener Käse (Mozzarella + Parmesan)</li>
-              <li>1 Zwiebel, 2 Knoblauchzehen</li>
-              <li>2 EL Olivenöl, Oregano, Salz, Pfeffer</li>
-              <li>Kleiner Beilagensalat</li>
+              <li>1,2 kg Kartoffeln, 500g Brokkoli, 200ml Sahne, 200ml Brühe</li>
+              <li>250g Käse, 1 Zwiebel, 2 Knoblauchzehen, Muskatnuss, Senf</li>
             </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Tortellini nach Packungsanweisung kochen, abgießen.</li>
-              <li>Zwiebel und Knoblauch hacken, in Öl andünsten. Zucchini und Paprika in Würfel, 5 Min mitbraten.</li>
-              <li>Tomaten und Sahne angießen, aufkochen. Mit Oregano, Salz, Pfeffer abschmecken.</li>
-              <li>Tortellini in Auflaufform, Sauce darüber, Käse bestreuen.</li>
-              <li>20 Min bei 200°C überbacken.</li>
-            </ol>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- DO 11.6. -->
+    <!-- MI 24.6. -->
     <div class="archive-card">
-      <div class="day-header solo">
-        <h2>Do 11.6. · Donnerstag</h2>
-        <span class="badge">Julia weg · 🏓 Pickleball Tim 19:30</span>
+      <div class="day-header weekday">
+        <h2>Mi 24.6. · Mittwoch</h2>
+        <span class="badge">🎹 Klavier Frida · 🏓 Pickleball Tim · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥣 Warmer Porridge mit Apfel & Zimt</div>
-              <div class="meal-note">Wohltuend und gesund — perfekt für einen vollen Tag</div>
+              <div class="meal-name">🥣 Haferflocken-Porridge mit Apfel und Zimt</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>500g Haferflocken (zart)</li>
-              <li>750ml Milch + 250ml Wasser</li>
-              <li>3 Äpfel (in Würfeln)</li>
-              <li>3 TL Zimt</li>
-              <li>2 EL Honig oder Ahornsirup</li>
-              <li>Walnüsse oder Mandeln zum Bestreuen</li>
-              <li>Etwas Butter zum Anrösten</li>
+              <li>400g Haferflocken, 600ml Milch + 200ml Wasser, 3 Äpfel</li>
+              <li>Zimt, Honig, Walnüsse</li>
             </ul>
           </div></div>
         </div>
@@ -1074,40 +917,26 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🐟 Lachs mit Dillsoße, Reis und Brokkoli</div>
-              <div class="meal-note">Fischtag — Julia ist eh weg, die Kids mögen Lachs</div>
+              <div class="meal-name">🍝 Pasta Pesto mit Kirschtomaten und Mozzarella</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>6 Lachsfilets (á ca. 150g, frisch oder TK)</li>
-              <li>400g Reis (Basmati)</li>
-              <li>500g Brokkoli (frisch oder TK)</li>
-              <li>200ml Sahne</li>
-              <li>1 Zitrone</li>
-              <li>1 Bund Dill (frisch)</li>
-              <li>2 EL Butter, 1 EL Mehl</li>
-              <li>Salz, Pfeffer, etwas Zucker</li>
+              <li>500g Spaghetti/Penne, 1 Glas Pesto, 250g Kirschtomaten</li>
+              <li>2 Kugeln Mozzarella, Parmesan, Basilikum</li>
             </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Reis kochen. Brokkoli in Röschen teilen, 6 Min dünsten oder in Salzwasser blanchieren.</li>
-              <li>Lachs: Ofen bei 180°C. Filets auf Blech, mit Zitronensaft, Salz, Pfeffer würzen. 15–18 Min im Ofen.</li>
-              <li>Dillsoße: Butter schmelzen, Mehl einrühren. Sahne langsam zugeben, aufkochen. Gehackten Dill und Zitronenschale einrühren.</li>
-              <li>Lachs auf Reis anrichten, Brokkoli dazu, Soße darüber.</li>
-            </ol>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- FR 12.6. -->
+    <!-- DO 25.6. -->
     <div class="archive-card">
-      <div class="day-header solo">
-        <h2>Fr 12.6. · Freitag</h2>
-        <span class="badge">💑 Date Night 21:00 · 6 Pers.</span>
+      <div class="day-header weekday">
+        <h2>Do 25.6. · Donnerstag</h2>
+        <span class="badge">👨‍👦 Tim betreut Moritz · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
@@ -1115,20 +944,13 @@
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
               <div class="meal-name">🍳 Rührei mit Toast und Schnittlauch</div>
-              <div class="meal-note">Tim hat Zeit — frisch kochen!</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>10–12 Eier</li>
-              <li>1 Packung Toastbrot (oder frisches Brot)</li>
-              <li>Butter</li>
-              <li>1 Bund Schnittlauch</li>
-              <li>Milch (3 EL fürs Rührei)</li>
-              <li>Salz, Pfeffer</li>
-              <li>Optional: Käsewürfel, Schinkenwürfel</li>
+              <li>10–12 Eier, 1 Packung Toast, Butter, Schnittlauch</li>
               <li>Tomaten, Gurke als Beilage</li>
             </ul>
           </div></div>
@@ -1137,58 +959,41 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🐟 Fischstäbchen mit Kartoffelpüree & Erbsen</div>
-              <div class="meal-note">Kinderliebling — schnell gemacht, Date Night ab 21:00</div>
+              <div class="meal-name">🐟 Fischstäbchen mit Kartoffelpüree und Erbsen</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>2 Pck. Fischstäbchen (Ofen-Qualität, ca. 20 Stk.)</li>
-              <li>1,5 kg Kartoffeln (mehlkochend für Püree)</li>
-              <li>200ml Milch</li>
-              <li>50g Butter</li>
-              <li>Muskatnuss, Salz, Pfeffer</li>
-              <li>400g Erbsen (TK oder Glas)</li>
-              <li>Zitrone, Remoulade oder Ketchup</li>
+              <li>2 Pck. Fischstäbchen, 1,5 kg Kartoffeln, Milch, Butter</li>
+              <li>400g Erbsen, Zitrone, Remoulade</li>
             </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Kartoffeln schälen, kochen, abgießen.</li>
-              <li>Mit Milch und Butter stampfen, mit Muskatnuss abschmecken.</li>
-              <li>Fischstäbchen im Ofen bei 220°C ca. 15 Min backen (wenden nach 8 Min).</li>
-              <li>Erbsen in Salzwasser 5 Min kochen. Mit Zitrone und Remoulade servieren.</li>
-            </ol>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- SA 13.6. -->
+    <!-- FR 26.6. -->
     <div class="archive-card">
-      <div class="day-header weekend">
-        <h2>Sa 13.6. · Samstag</h2>
-        <span class="badge">🎪 TuS Oberkassel Fest (130 Jahre) · 6 Pers.</span>
+      <div class="day-header weekday">
+        <h2>Fr 26.6. · Freitag</h2>
+        <span class="badge">👨‍👦 Tim betreut Moritz · 💑 Date Night · 6 Pers.</span>
       </div>
       <div class="meals">
         <div class="meal">
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🌅 Frühstück</div>
-              <div class="meal-name">🥣 Müsli & Obst — schnell und unkompliziert</div>
-              <div class="meal-note">TuS-Fest tagsüber — einfach reinkommen und los</div>
+              <div class="meal-name">🍞 Brötchen & Aufschnitt</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>750g Naturjoghurt</li>
-              <li>500g Haferflocken / Müsli</li>
-              <li>Frisches Obst: Bananen, Äpfel, Beeren</li>
-              <li>Nüsse, Honig</li>
-              <li>Milch, Kaffee, Tee</li>
+              <li>12–15 Brötchen, Aufschnitt, Käse, Marmelade, Honig, Butter</li>
+              <li>Tomaten, Gurke</li>
             </ul>
           </div></div>
         </div>
@@ -1196,29 +1001,16 @@
           <div class="meal-summary" onclick="toggleAccordion(this)">
             <div class="meal-info">
               <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">🍕 Flammkuchen — 3 Varianten</div>
-              <div class="meal-note">Klassisch mit Schinken + vegetarisch mit Ziegenkäse/Rucola. Schnell und easy nach dem Fest.</div>
+              <div class="meal-name">🐟 Lachsfilet mit Dillsoße, Reis und Brokkoli</div>
             </div>
             <div class="meal-toggle">▼</div>
           </div>
           <div class="meal-details"><div class="meal-details-inner">
             <h4>Zutaten (6 Pers.)</h4>
             <ul>
-              <li>3–4 Flammkuchenteigs (fertig aus der Kühltheke)</li>
-              <li><strong>Variante 1 — Klassisch:</strong> Crème fraîche, Speckwürfel, Zwiebelringe</li>
-              <li><strong>Variante 2 — Vegetarisch:</strong> Crème fraîche, Ziegenkäse, Rucola, Honig, Walnüsse</li>
-              <li><strong>Variante 3 — Kids:</strong> Crème fraîche, Käse, Kirschtomaten</li>
-              <li>1 Bund Schnittlauch</li>
-              <li>Kleiner Salat als Beilage</li>
+              <li>6 Lachsfilets, 400g Reis, 500g Brokkoli, 200ml Sahne</li>
+              <li>1 Zitrone, 1 Bund Dill, Butter, Mehl</li>
             </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Ofen auf 250°C vorheizen (Ober-/Unterhitze, am höchsten).</li>
-              <li>Teig auf Blech legen, mit Crème fraîche bestreichen.</li>
-              <li>Belag verteilen: Variante 1 mit Speck+Zwiebeln, Variante 2 mit Ziegenkäse.</li>
-              <li>8–10 Min im Ofen, bis der Rand knusprig ist.</li>
-              <li>Variante 2: Rucola und Honig erst nach dem Backen drauf.</li>
-            </ol>
           </div></div>
         </div>
       </div>
@@ -1229,7 +1021,7 @@
 </div>
 
 <footer class="footer">
-  Erstellt mit ❤️ für Familie Heineccius · 20.–26. Juni 2026 · 6 Pers. · Vegetarisch (Fisch ok) · 🔥 So Grill-Tag
+  Erstellt mit ❤️ für Familie Heineccius · 27. Juni – 3. Juli 2026 · Vegetarisch (Fisch ok) · 🟣 Do/Fr Julia weg
 </footer>
 
 <script>
@@ -1253,15 +1045,15 @@ function switchTab(tab) {
   }
 }
 
-// Highlight today (2026-06-20)
-const todayCard = document.getElementById('2026-06-20');
+// Highlight today (2026-06-27)
+const todayCard = document.getElementById('2026-06-27');
 if (todayCard) {
   todayCard.classList.add('today');
 }
 
 // Checkbox persistence with localStorage
 document.querySelectorAll('.shop-item input[type="checkbox"]').forEach((cb, i) => {
-  const key = 'shop_2026-06-20_' + i;
+  const key = 'shop_2026-06-27_' + i;
   const saved = localStorage.getItem(key);
   if (saved === 'true') {
     cb.checked = true;
