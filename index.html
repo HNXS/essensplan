@@ -80,7 +80,7 @@
 <div class="container">
   <header>
     <h1>🍽️ Familien-Essensplan</h1>
-    <p>Familie Heineccius · 29. Juni – 4. Juli 2026</p>
+    <p>Familie Heineccius · 30. Juni – 4. Juli 2026</p>
     <div class="legend">
       <span>🟢 Werktag (6 Pers.)</span>
       <span>🟣 Julia weg (5 Pers.)</span>
@@ -92,60 +92,16 @@
   <div class="tab-nav">
     <button class="tab-btn active" id="btn-current" onclick="switchTab('current')">📅 Essensplan</button>
     <button class="tab-btn" id="btn-shopping" onclick="switchTab('shopping')">🛒 Einkaufsliste</button>
+    <button class="tab-btn" id="btn-archive" onclick="switchTab('archive')">📦 Archiv</button>
   </div>
 
   <!-- ===== ESENSPLAN ===== -->
   <div class="tab-content active" id="tab-current">
 
-    <!-- MO 29.6. — HEUTE -->
-    <div class="day-card today" id="2026-06-29">
+    <!-- DI 30.6. — HEUTE -->
+    <div class="day-card today" id="2026-06-30">
       <div class="day-header weekday">
-        <h2>🟢 Mo 29.6. · Montag · ⭐ Heute</h2>
-        <span class="badge">👂 Nora Ohrenarzt · 🤸 Frida Sport · 6 Pers.</span>
-      </div>
-      <div class="meals">
-        <div class="meal">
-          <img src="images/orzo-pfanne.jpg" alt="Zitronige Orzo-Pfanne mit Feta &amp; Kirschtomaten" class="meal-image">
-          <div class="meal-summary" onclick="toggleAccordion(this)">
-            <div class="meal-info">
-              <div class="meal-type">🍲 Abendessen</div>
-              <div class="meal-name">Zitronige Orzo-Pfanne mit Feta &amp; Kirschtomaten</div>
-              <div class="meal-note">Sommerlich, leicht und schnell — perfekt nach dem Sport</div>
-            </div>
-            <div class="meal-toggle">▼</div>
-          </div>
-          <div class="meal-details"><div class="meal-details-inner">
-            <h4>Zutaten (6 Pers.)</h4>
-            <ul>
-              <li>500g Orzo (Risoni Nudeln)</li>
-              <li>400g Kirschtomaten (halbiert)</li>
-              <li>250g Feta (in Würfeln)</li>
-              <li>1 Bio-Zitrone (Saft + Abrieb)</li>
-              <li>2 Knoblauchzehen (gepresst)</li>
-              <li>1 Bund Petersilie oder Basilikum (gehackt)</li>
-              <li>4 EL Olivenöl</li>
-              <li>Salz, Pfeffer, 1 TL Oregano (getrocknet)</li>
-              <li>50g Pinienkerne (optional, geröstet)</li>
-            </ul>
-            <h4>Zubereitung</h4>
-            <ol>
-              <li>Orzo in reichlich Salzwasser nach Packungsanweisung kochen (ca. 9 Min), abgießen und kurz beiseite stellen.</li>
-              <li>In einer großen Pfanne Olivenöl erhitzen, Knoblauch 1 Min andünsten.</li>
-              <li>Kirschtomaten zugeben und bei mittlerer Hitze 4–5 Min braten, bis sie weich werden und Saft abgeben.</li>
-              <li>Zitronensaft und -abrieb einrühren, Orzo dazugeben und alles gut vermengen.</li>
-              <li>Mit Salz, Pfeffer und Oregano abschmecken.</li>
-              <li>Feta-Würfel und Kräuter unterheben, auf Tellern anrichten. Nach Belieben mit gerösteten Pinienkernen bestreuen.</li>
-            </ol>
-            <div class="tip">Orzo geht auch kalt als Salat — Reste für den nächsten Tag sind ein Traum!</div>
-          </div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DI 30.6. -->
-    <div class="day-card" id="2026-06-30">
-      <div class="day-header weekday">
-        <h2>🟢 Di 30.6. · Dienstag</h2>
+        <h2>🟢 Di 30.6. · Dienstag · ⭐ Heute</h2>
         <span class="badge">🏊 Nora Schwimmen · 6 Pers.</span>
       </div>
       <div class="meals">
@@ -524,21 +480,21 @@
   <!-- ===== EINKAUFSLISTE ===== -->
   <div class="tab-content" id="tab-shopping">
     <div class="shopping-section">
-      <h2>🛒 Einkaufsliste · 29. Juni – 4. Juli 2026</h2>
+      <h2>🛒 Einkaufsliste · 30. Juni – 4. Juli 2026</h2>
 
       <div class="shop-category">
         <h3>🥬 Gemüse &amp; Obst</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>400g Kirschtomaten (Mo + Mi)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>3 Zucchini (Di + Mi)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>250g Kirschtomaten (Mi)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>2 Zucchini (Di + Mi)</label></div>
           <div class="shop-item"><input type="checkbox"><label>3 Paprika bunt (Di + Mi + Fr)</label></div>
           <div class="shop-item"><input type="checkbox"><label>1 Gurke (Mi + Do + Fr)</label></div>
           <div class="shop-item"><input type="checkbox"><label>3–4 Tomaten (Frühstück)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Bund Petersilie oder Basilikum (Mo)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Bund Basilikum (Mi Pasta)</label></div>
           <div class="shop-item"><input type="checkbox"><label>1 Bund Schnittlauch (Do)</label></div>
           <div class="shop-item"><input type="checkbox"><label>1 Stück Ingwer (Di)</label></div>
           <div class="shop-item"><input type="checkbox"><label>2 Knoblauch-Knollen</label></div>
-          <div class="shop-item"><input type="checkbox"><label>1 Zitrone (Mo + Do)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>1 Zitrone (Do Fischstäbchen)</label></div>
           <div class="shop-item"><input type="checkbox"><label>200g frische Erbsen oder TK-Erbsen (Mi)</label></div>
           <div class="shop-item"><input type="checkbox"><label>200g Babyspinat (Di)</label></div>
           <div class="shop-item"><input type="checkbox"><label>300g Beeren frisch (Di + Sa)</label></div>
@@ -563,9 +519,9 @@
         <div class="shop-items">
           <div class="shop-item"><input type="checkbox"><label>750g Naturjoghurt (Di Frühstück)</label></div>
           <div class="shop-item"><input type="checkbox"><label>600ml Milch (Frühstück + Do Stampf)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>250g Feta (Mo Orzo)</label></div>
+          <div class="shop-item" style="opacity:0.4"><input type="checkbox" checked disabled><label><s>250g Feta (Mo — bereits gekauft)</s></label></div>
           <div class="shop-item"><input type="checkbox"><label>300g Mozzarella gerieben (Fr Pizza)</label></div>
-          <div class="shop-item"><label>300g Gouda gerieben (Sa Burger)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>300g Gouda gerieben (Sa Burger)</label></div>
           <div class="shop-item"><input type="checkbox"><label>6 Cheddar-Scheiben (Sa Burger)</label></div>
           <div class="shop-item"><input type="checkbox"><label>80g Parmesan am Stück (Mi Pasta)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Frischkäse Kräuter (Mi Frühstück)</label></div>
@@ -592,7 +548,7 @@
       <div class="shop-category">
         <h3>🍚 Vorrat &amp; Trockenes</h3>
         <div class="shop-items">
-          <div class="shop-item"><input type="checkbox"><label>500g Orzo/Risoni (Mo)</label></div>
+          <div class="shop-item" style="opacity:0.4"><input type="checkbox" checked disabled><label><s>500g Orzo/Risoni (Mo — bereits gekocht)</s></label></div>
           <div class="shop-item"><input type="checkbox"><label>400g Basmatireis (Di)</label></div>
           <div class="shop-item"><input type="checkbox"><label>500g Farfalle oder Penne (Mi)</label></div>
           <div class="shop-item"><input type="checkbox"><label>2 Dosen Kichererbsen á 400g (Di)</label></div>
@@ -609,7 +565,7 @@
           <div class="shop-item"><input type="checkbox"><label>Honig (Frühstück)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Marmelade (verschiedene Sorten)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Nüsse: Walnüsse, Mandeln (Di + Mi)</label></div>
-          <div class="shop-item"><input type="checkbox"><label>50g Pinienkerne (Mo + Mi)</label></div>
+          <div class="shop-item"><input type="checkbox"><label>50g Pinienkerne (Mi Pasta)</label></div>
           <div class="shop-item"><input type="checkbox"><label>1 Dose Mais (Fr Pizza)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Oliven (Fr Pizza)</label></div>
           <div class="shop-item"><input type="checkbox"><label>Essiggurken (Sa Burger)</label></div>
@@ -622,10 +578,61 @@
     </div>
   </div><!-- tab-shopping -->
 
+  <!-- ===== ARCHIV ===== -->
+  <div class="tab-content" id="tab-archive">
+    <p class="archive-intro">📦 Rezept aus vergangener Woche — Archiviert am 30.06.2026</p>
+
+    <!-- MO 29.6. -->
+    <div class="archive-card">
+      <div class="day-header weekday">
+        <h2>Mo 29.6. · Montag</h2>
+        <span class="badge">👂 Nora Ohrenarzt · 🤸 Frida Sport · 6 Pers.</span>
+      </div>
+      <div class="meals">
+        <div class="meal">
+          <img src="images/orzo-pfanne.jpg" alt="Zitronige Orzo-Pfanne mit Feta &amp; Kirschtomaten" class="meal-image">
+          <div class="meal-summary" onclick="toggleAccordion(this)">
+            <div class="meal-info">
+              <div class="meal-type">🍲 Abendessen</div>
+              <div class="meal-name">Zitronige Orzo-Pfanne mit Feta &amp; Kirschtomaten</div>
+              <div class="meal-note">Sommerlich, leicht und schnell — perfekt nach dem Sport</div>
+            </div>
+            <div class="meal-toggle">▼</div>
+          </div>
+          <div class="meal-details"><div class="meal-details-inner">
+            <h4>Zutaten (6 Pers.)</h4>
+            <ul>
+              <li>500g Orzo (Risoni Nudeln)</li>
+              <li>400g Kirschtomaten (halbiert)</li>
+              <li>250g Feta (in Würfeln)</li>
+              <li>1 Bio-Zitrone (Saft + Abrieb)</li>
+              <li>2 Knoblauchzehen (gepresst)</li>
+              <li>1 Bund Petersilie oder Basilikum (gehackt)</li>
+              <li>4 EL Olivenöl</li>
+              <li>Salz, Pfeffer, 1 TL Oregano (getrocknet)</li>
+              <li>50g Pinienkerne (optional, geröstet)</li>
+            </ul>
+            <h4>Zubereitung</h4>
+            <ol>
+              <li>Orzo in reichlich Salzwasser nach Packungsanweisung kochen (ca. 9 Min), abgießen und kurz beiseite stellen.</li>
+              <li>In einer großen Pfanne Olivenöl erhitzen, Knoblauch 1 Min andünsten.</li>
+              <li>Kirschtomaten zugeben und bei mittlerer Hitze 4–5 Min braten, bis sie weich werden und Saft abgeben.</li>
+              <li>Zitronensaft und -abrieb einrühren, Orzo dazugeben und alles gut vermengen.</li>
+              <li>Mit Salz, Pfeffer und Oregano abschmecken.</li>
+              <li>Feta-Würfel und Kräuter unterheben, auf Tellern anrichten. Nach Belieben mit gerösteten Pinienkernen bestreuen.</li>
+            </ol>
+            <div class="tip">Orzo geht auch kalt als Salat — Reste für den nächsten Tag sind ein Traum!</div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- tab-archive -->
+
 </div>
 
 <footer class="footer">
-  Familie Heineccius · 29.06.–04.07.2026 · Vegetarisch (Fisch ok) · 🟣 Do/Fr Julia weg
+  Familie Heineccius · 30.06.–04.07.2026 · Vegetarisch (Fisch ok) · 🟣 Do/Fr Julia weg
 </footer>
 
 <script>
@@ -641,12 +648,12 @@ function switchTab(tab) {
 }
 
 // Highlight today
-const todayCard = document.getElementById('2026-06-29');
+const todayCard = document.getElementById('2026-06-30');
 if (todayCard) todayCard.classList.add('today');
 
 // Checkbox persistence
 document.querySelectorAll('.shop-item input[type="checkbox"]').forEach((cb, i) => {
-  const key = 'shop_2026-06-29_' + i;
+  const key = 'shop_2026-06-30_' + i;
   const saved = localStorage.getItem(key);
   if (saved === 'true') { cb.checked = true; cb.parentElement.classList.add('checked'); }
   cb.addEventListener('change', () => {
